@@ -5,7 +5,7 @@
         android:id="@+id/home2"
         android:icon="@drawable/ic_home"/>
     <item android:title="Login"
-        android:id="@+id/login_SingUp"
+        android:id="@+id/login_SignUp"
         android:icon="@drawable/ic_login"/>
     <item android:title="List"
         android:id="@+id/list"

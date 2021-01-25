@@ -11,10 +11,10 @@
         android:label="home"
         tools:layout="@layout/fragment_home" />
     <fragment
-        android:id="@+id/login_SingUp"
-        android:name="com.example.recipe.Login_SingUp"
+        android:id="@+id/login_SignUp"
+        android:name="com.example.recipe.Login_SignUp"
         android:label="login"
-        tools:layout="@layout/fragment_login__sing_up" />
+        tools:layout="@layout/fragment_login__sign_up" />
     <fragment
         android:id="@+id/list"
         android:name="com.example.recipe.List"
