@@ -13,13 +13,8 @@
     <fragment
         android:id="@+id/login_SignUp"
         android:name="com.example.recipe.Login_SignUp"
-<<<<<<< HEAD
-        android:label="login"
-        tools:layout="@layout/fragment_login__sign_up" />
-=======
         android:label="Login"
         tools:layout="@layout/fragment_login_sign_up" />
->>>>>>> Develop
     <fragment
         android:id="@+id/list"
         android:name="com.example.recipe.List"

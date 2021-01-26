@@ -6,4 +6,9 @@
     <string name="list_view">List_view</string>
     <string name="exit">exit</string>
     <string name="detail_view">detail_view</string>
+    <string name="home_title">Home</string>
+    <string name="login_title">Login</string>
+    <string name="list_title">List</string>
+    <string name="detail_title">Detail</string>
+    <string name="exit_title">Exit</string>
 </resources>
