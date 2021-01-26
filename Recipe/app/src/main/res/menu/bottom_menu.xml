@@ -1,19 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:title="Home"
+    <item android:title="@string/home_title"
         android:id="@+id/home2"
         android:icon="@drawable/ic_home"/>
+<<<<<<< HEAD
     <item android:title="Login"
+=======
+    <item android:title="@string/login_title"
+>>>>>>> Develop
         android:id="@+id/login_SignUp"
         android:icon="@drawable/ic_login"/>
-    <item android:title="List"
+    <item android:title="@string/list_title"
         android:id="@+id/list"
         android:icon="@drawable/ic_list"/>
-    <item android:title="Detail"
+    <item android:title="@string/detail_title"
         android:id="@+id/detail_view"
         android:icon="@drawable/ic_detail"/>
-    <item android:title="Exit"
+    <item android:title="@string/exit_title"
         android:id="@+id/signOut"
         android:icon="@drawable/ic_exit"/>
 </menu>

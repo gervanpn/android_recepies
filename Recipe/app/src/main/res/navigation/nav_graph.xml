@@ -8,26 +8,31 @@
     <fragment
         android:id="@+id/home2"
         android:name="com.example.recipe.Home"
-        android:label="home"
+        android:label="Home"
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/login_SignUp"
         android:name="com.example.recipe.Login_SignUp"
+<<<<<<< HEAD
         android:label="login"
         tools:layout="@layout/fragment_login__sign_up" />
+=======
+        android:label="Login"
+        tools:layout="@layout/fragment_login_sign_up" />
+>>>>>>> Develop
     <fragment
         android:id="@+id/list"
         android:name="com.example.recipe.List"
-        android:label="list"
+        android:label="List"
         tools:layout="@layout/fragment_list" />
     <fragment
         android:id="@+id/detail_view"
         android:name="com.example.recipe.Detail_view"
-        android:label="detail"
+        android:label="Detail"
         tools:layout="@layout/fragment_detail_view" />
     <fragment
         android:id="@+id/signOut"
         android:name="com.example.recipe.signOut"
-        android:label="fragment_sign_out"
+        android:label="Sign-Out"
         tools:layout="@layout/fragment_sign_out" />
 </navigation>

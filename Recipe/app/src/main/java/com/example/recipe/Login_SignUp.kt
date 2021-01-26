@@ -34,7 +34,7 @@ class Login_SignUp : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_login__sign_up, container, false)
+        return inflater.inflate(R.layout.fragment_login_sign_up, container, false)
     }
 
     companion object {
@@ -44,7 +44,7 @@ class Login_SignUp : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment Login_SignUp.
+         * @return A new instance of fragment Login_SingUp.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
