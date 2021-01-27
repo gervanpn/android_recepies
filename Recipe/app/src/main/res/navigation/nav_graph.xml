@@ -9,7 +9,11 @@
         android:id="@+id/home2"
         android:name="com.example.recipe.Home"
         android:label="Home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_home2_to_list"
+            app:destination="@id/list" />
+    </fragment>
     <fragment
         android:id="@+id/login_SignUp"
         android:name="com.example.recipe.Login_SignUp"
@@ -19,7 +23,11 @@
         android:id="@+id/list"
         android:name="com.example.recipe.List"
         android:label="List"
-        tools:layout="@layout/fragment_list" />
+        tools:layout="@layout/fragment_list" >
+        <action
+            android:id="@+id/action_list_to_detail_view"
+            app:destination="@id/detail_view" />
+    </fragment>
     <fragment
         android:id="@+id/detail_view"
         android:name="com.example.recipe.Detail_view"
