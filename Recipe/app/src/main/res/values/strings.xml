@@ -11,5 +11,10 @@
     <string name="list_title">List</string>
     <string name="detail_title">Detail</string>
     <string name="exit_title">Exit</string>
-    <string name="web_client_id">513502174301-3pfu4vjo5t5uuu2rqgmv0auplsueo976.apps.googleusercontent.com</string>
+
+    <string name="home">Home</string>
+    <string name="home_image">Home Background</string>
+    <string name="btn_entree">ENTREE</string>
+
+	<string name="web_client_id">513502174301-3pfu4vjo5t5uuu2rqgmv0auplsueo976.apps.googleusercontent.com</string>
 </resources>
