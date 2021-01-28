@@ -30,6 +30,9 @@ import kotlinx.android.synthetic.main.fragment_login_sign_up.*
 import androidx.fragment.app.FragmentManager as AndroidxFragmentAppFragmentManager
 import com.example.recipe.List as RecipeList
 
+//private const val ARG_PARAM1 = "param1"
+//private const val ARG_PARAM2 = "param2"
+
 class Login_SignUp : Fragment() {
     var thiscontext: Context? = null
     var contain : Int = 0
@@ -42,27 +45,18 @@ class Login_SignUp : Fragment() {
     lateinit var mGoogleSignInOptions: GoogleSignInOptions
 
     // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+   // private var param1: String? = null
+   // private var param2: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-           // param1 = it.getString(ARG_PARAM1)
-           // param2 = it.getString(ARG_PARAM2)
-        }
-        //google_button.
-        //configureGoogleSignIn()
-        firebaseAuth = FirebaseAuth.getInstance()
-        //setupUI()
-        //google_button = findViewByID(R.id.google_button)
+        //arguments?.let {
+         //   param1 = it.getString(ARG_PARAM1)
+          //  param2 = it.getString(ARG_PARAM2)
+        //}
 
-    //setup()
-//
-//        ) {
-//            Log.d("SET", "setting up ui code")
-//            signIn()
-//        }
+        firebaseAuth = FirebaseAuth.getInstance()
+
     }
 
        override fun onCreateView(
@@ -99,12 +93,7 @@ class Login_SignUp : Fragment() {
 				   }
 	   }
 	   return binding.root
-           //if (container != null) {
-
-           //}
-
-           //return inflater.inflate(R.layout.fragment_login_sign_up, container, false)     // Inflate the layout for this fragment
-        //return view
+       //return inflater.inflate(R.layout.fragment_login_sign_up, container, false)     // Inflate the layout for this fragment
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -113,7 +102,6 @@ class Login_SignUp : Fragment() {
         if (user != null) {
             textView.text = user?.displayName
         }
-
     }
 
     override fun onStart() {
@@ -126,7 +114,6 @@ class Login_SignUp : Fragment() {
         google_button.setOnClickListener {
             signIn()
         }
-
     }
 
     companion object {
@@ -143,11 +130,10 @@ class Login_SignUp : Fragment() {
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
             Login_SignUp().apply {
-
-                arguments = Bundle().apply {
-                 //   putString(ARG_PARAM1, param1)
-                 //   putString(ARG_PARAM2, param2)
-                }
+//                arguments = Bundle().apply {
+//                    putString(ARG_PARAM1, param1)
+//                    putString(ARG_PARAM2, param2)
+//                }
             }
     }
 
