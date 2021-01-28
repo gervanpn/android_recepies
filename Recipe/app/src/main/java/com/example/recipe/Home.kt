@@ -1,5 +1,7 @@
 package com.example.recipe
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -43,6 +45,11 @@ class Home : Fragment() {
     }
 
     companion object {
+
+
+            fun getLaunchIntent(from: Context) = Intent(from, Home::class.java)/*.apply {
+            addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+        }*/
         /**
          * Use this factory method to create a new instance of
          * this fragment using the provided parameters.
