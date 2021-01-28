@@ -2,10 +2,13 @@
     <string name="app_name">Recipe</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="list_view">List_view</string>
+    <string name="exit">exit</string>
+    <string name="detail_view">detail_view</string>
     <string name="home_title">Home</string>
-    <string name="login_title">Log-In</string>
+    <string name="login_title">Login</string>
     <string name="list_title">List</string>
-    <string name="detail_title">Details</string>
+    <string name="detail_title">Detail</string>
     <string name="exit_title">Exit</string>
 
     <string name="home">Home</string>
@@ -15,4 +18,6 @@
     <string name="Password">Password</string>
     <string name="Login">Log-In</string>
     <string name="Signup">Sign-Up</string>
+	
+	<string name="web_client_id">513502174301-3pfu4vjo5t5uuu2rqgmv0auplsueo976.apps.googleusercontent.com</string>
 </resources>

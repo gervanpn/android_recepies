@@ -1,5 +1,7 @@
 package com.example.recipe
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -13,9 +15,13 @@ import com.example.recipe.databinding.FragmentHomeBinding
 
 class Home : Fragment() {
 
+    //var google_buton : GoogleSignInButton? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
