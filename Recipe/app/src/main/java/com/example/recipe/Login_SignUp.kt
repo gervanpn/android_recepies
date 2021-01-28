@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.ListFragment
 import androidx.fragment.app.commit
 import androidx.fragment.app.replace
+import androidx.navigation.Navigation
 import com.example.recipe.List.Companion.newInstance
 import com.example.recipe.R.id.home2
 import com.example.recipe.R.id.login_SignUp
@@ -143,6 +144,7 @@ class Login_SignUp : Fragment() {
             if (it.isSuccessful) {
                 val user = FirebaseAuth.getInstance().currentUser
                 Log.d("SUC", user?.displayName!!)
+                //Navigation.createNavigateOnClickListener(R.id.action_home2_to_list)
 //                parentFragmentManager.commit {
 //                    replace<RecipeList>(R.layout.fragment_login_sign_up)
 //                    setReorderingAllowed(true)
