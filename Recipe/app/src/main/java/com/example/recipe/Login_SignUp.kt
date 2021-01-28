@@ -8,8 +8,13 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.core.net.toUri
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavDeepLinkRequest
+import androidx.navigation.Navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.example.recipe.databinding.FragmentLoginSignUpBinding
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
@@ -20,7 +25,7 @@ import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
-import kotlinx.android.synthetic.main.fragment_login_sign_up.*
+
 
 
 class Login_SignUp : Fragment() {
@@ -34,19 +39,9 @@ class Login_SignUp : Fragment() {
     lateinit var mGoogleSignInClient: GoogleSignInClient
     lateinit var mGoogleSignInOptions: GoogleSignInOptions
 
-    // TODO: Rename and change types of parameters
-   // private var param1: String? = null
-   // private var param2: String? = null
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //arguments?.let {
-         //   param1 = it.getString(ARG_PARAM1)
-          //  param2 = it.getString(ARG_PARAM2)
-        //}
-
         firebaseAuth = FirebaseAuth.getInstance()
-
     }
 
        override fun onCreateView(
@@ -54,7 +49,6 @@ class Login_SignUp : Fragment() {
            savedInstanceState: Bundle?
        ): View? {
 
-	   // Inflate the layout for this fragment
 	   binding = DataBindingUtil.inflate(inflater,R.layout.fragment_login_sign_up,
 			   container, false )
            if (container != null) {
@@ -74,26 +68,27 @@ class Login_SignUp : Fragment() {
 					   Log.d("TAG", "do_Login:$et_email")
 					   Log.d("TAG", "do_Login:$et_password")
 					   if(task.isSuccessful){
-
-						   Log.d("TAG", "do_Login:you are loggedin ")
-                          // Navigation.createNavigateOnClickListener(R.id.action_home2_to_list)
-
+                           val request = NavDeepLinkRequest.Builder
+                               .fromUri("android-app://androidx.navigation.app/list".toUri())
+                               .build()
+                           findNavController().navigate(request)
+						   Log.d("TAG", "do_Login: you are logged in ")
 						   val user: FirebaseUser? = firebaseAuth.currentUser
 						   Log.d("TAG", "do_Login:$user")
 					   }else {
 						   Log.d("TAG", "do_Login:login failed")
+                           Toast.makeText(thiscontext,"Please enter valid credential",Toast.LENGTH_LONG).show()
 					   }
 				   }
 	   }
 	   return binding.root
-       //return inflater.inflate(R.layout.fragment_login_sign_up, container, false)     // Inflate the layout for this fragment
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val user = FirebaseAuth.getInstance().currentUser
         if (user != null) {
-            textView.text = user?.displayName
+            binding.textView.text = user?.displayName
         }
     }
 
@@ -104,30 +99,9 @@ class Login_SignUp : Fragment() {
 		Log.d("TAG", "do_Login:$currentUser")
 
         configureGoogleSignIn()
-        google_button.setOnClickListener {
+        binding.googleButton.setOnClickListener {
             signIn()
         }
-    }
-
-    companion object {
-        fun getLaunchIntent(from: Context) = Intent(from, Login_SignUp::class.java)
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment Login_SingUp.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            Login_SignUp().apply {
-//                arguments = Bundle().apply {
-//                    putString(ARG_PARAM1, param1)
-//                    putString(ARG_PARAM2, param2)
-//                }
-            }
     }
 
     private fun firebaseAuthWithGoogle(acct: GoogleSignInAccount) {
@@ -148,15 +122,8 @@ class Login_SignUp : Fragment() {
 //                    ?.commit();
 
             }
-
             }
         }
-//        private fun setupUI() {
-//        google_button?.setOnClickListener {
-//           Log.d("SET", "setting up ui code")
-//            signIn()
-//        }
-//      }
 
     private fun signIn() {
         val signInIntent: Intent = mGoogleSignInClient.signInIntent
@@ -187,9 +154,4 @@ class Login_SignUp : Fragment() {
             }
         }
     }
-
-	fun do_Login(){
-
-	}
-
 }
