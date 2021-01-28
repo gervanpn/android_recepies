@@ -8,6 +8,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.ListFragment
 import androidx.fragment.app.commit
@@ -15,6 +16,7 @@ import androidx.fragment.app.replace
 import com.example.recipe.List.Companion.newInstance
 import com.example.recipe.R.id.home2
 import com.example.recipe.R.id.login_SignUp
+import com.example.recipe.databinding.FragmentLoginSignUpBinding
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -33,7 +35,7 @@ class Login_SignUp : Fragment() {
     var contain : Int = 0
     //var view : View? = null
     //var google_button : SignInButton? = null
-	private lateinit var binding: FragmentLoginSignUpBinding
+	private lateinit var binding : FragmentLoginSignUpBinding
     private lateinit var firebaseAuth: FirebaseAuth
     val RC_SIGN_IN: Int = 1
     lateinit var mGoogleSignInClient: GoogleSignInClient
@@ -46,8 +48,8 @@ class Login_SignUp : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+           // param1 = it.getString(ARG_PARAM1)
+           // param2 = it.getString(ARG_PARAM2)
         }
         //google_button.
         //configureGoogleSignIn()
@@ -71,42 +73,43 @@ class Login_SignUp : Fragment() {
 	   // Inflate the layout for this fragment
 	   binding = DataBindingUtil.inflate(inflater,R.layout.fragment_login_sign_up,
 			   container, false )
-			   thiscontext = container.context
+           if (container != null) {
+               thiscontext = container.context
+           }
 	   var et_email = binding.Email.text
 	   var et_password = binding.password.text
 	   binding.LoginBtn.setOnClickListener {
 		   if (et_email.toString().isEmpty()){
-			   Log.d(TAG, "do_Login:enter valid username")
+			   Log.d("TAG", "do_Login:enter valid username")
 		   }
 		   if(et_password.toString().isEmpty()){
-			   Log.d(TAG, "do_Login:enter password ")
+			   Log.d("TAG", "do_Login:enter password ")
 		   }
 		   firebaseAuth.signInWithEmailAndPassword(et_email.toString(),et_password.toString())
 				   .addOnCompleteListener{ task->
-					   Log.d(TAG, "do_Login:$et_email")
-					   Log.d(TAG, "do_Login:$et_password")
+					   Log.d("TAG", "do_Login:$et_email")
+					   Log.d("TAG", "do_Login:$et_password")
 					   if(task.isSuccessful){
-						   Log.d(TAG, "do_Login:you are loggedin ")
+						   Log.d("TAG", "do_Login:you are loggedin ")
 						   val user: FirebaseUser? = firebaseAuth.currentUser
-						   Log.d(TAG, "do_Login:$user")
+						   Log.d("TAG", "do_Login:$user")
 					   }else {
-						   Log.d(TAG, "do_Login:login failed")
+						   Log.d("TAG", "do_Login:login failed")
 					   }
 				   }
 	   }
 	   return binding.root
-           if (container != null) {
+           //if (container != null) {
 
-           }
+           //}
 
-           return inflater.inflate(R.layout.fragment_login_sign_up, container, false)     // Inflate the layout for this fragment
+           //return inflater.inflate(R.layout.fragment_login_sign_up, container, false)     // Inflate the layout for this fragment
         //return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val user = FirebaseAuth.getInstance().currentUser
-        Log.d("USE", user.toString())
         if (user != null) {
             textView.text = user?.displayName
         }
@@ -117,24 +120,13 @@ class Login_SignUp : Fragment() {
         super.onStart()
 
 		val currentUser = firebaseAuth.currentUser
-		Log.d(TAG, "do_Login:$currentUser")
+		Log.d("TAG", "do_Login:$currentUser")
 
         configureGoogleSignIn()
         google_button.setOnClickListener {
             signIn()
         }
 
-
-        val user = FirebaseAuth.getInstance().currentUser
-        Log.d("USE", user.toString())
-
-
-        if (user != null) {
-
-            Log.d("STA", "Starting " + user.displayName)
-        // startActivity(Home.getLaunchIntent(this))
-            //finish()
-        }
     }
 
     companion object {
@@ -153,8 +145,8 @@ class Login_SignUp : Fragment() {
             Login_SignUp().apply {
 
                 arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+                 //   putString(ARG_PARAM1, param1)
+                 //   putString(ARG_PARAM2, param2)
                 }
             }
     }
@@ -165,24 +157,18 @@ class Login_SignUp : Fragment() {
             if (it.isSuccessful) {
                 val user = FirebaseAuth.getInstance().currentUser
                 Log.d("SUC", user?.displayName!!)
-                //var fragmentManager =
-                //val intent = RecipeList.newInstance("","").activity?.intent
-                //if (intent != null) startActivity(intent)
 //                parentFragmentManager.commit {
 //                    replace<RecipeList>(R.layout.fragment_login_sign_up)
 //                    setReorderingAllowed(true)
 //                    addToBackStack("name") // name can be null
 //                }
-                getFragmentManager()
-////                //supportFragmentManager
-                    ?.beginTransaction()
-                    ?.replace(R.id.login_SignUp, RecipeList.newInstance("", ""))
-                    ?.commit();
-                //findNavController(view.).navigate(R.id.home2)
+//                getFragmentManager()
+//                    ?.beginTransaction()
+//                    ?.replace(R.id.login_SignUp, RecipeList.newInstance("", ""))
+//                    ?.commit();
+
             }
-             //   startActivity(Home.getLaunchIntent(this))
-            //} //else {
-                //Toast.makeText(this, "Google sign in failed:(", Toast.LENGTH_LONG).show()
+
             }
         }
 //        private fun setupUI() {
