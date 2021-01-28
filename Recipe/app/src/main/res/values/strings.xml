@@ -11,4 +11,8 @@
     <string name="home">Home</string>
     <string name="home_image">Home Background</string>
     <string name="btn_entree">ENTREE</string>
+    <string name="Email">Email</string>
+    <string name="Password">Password</string>
+    <string name="Login">Log-In</string>
+    <string name="Signup">Sign-Up</string>
 </resources>
