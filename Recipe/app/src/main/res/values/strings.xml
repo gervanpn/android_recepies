@@ -7,4 +7,8 @@
     <string name="list_title">List</string>
     <string name="detail_title">Details</string>
     <string name="exit_title">Exit</string>
+
+    <string name="home">Home</string>
+    <string name="home_image">Home Background</string>
+    <string name="btn_entree">ENTREE</string>
 </resources>
