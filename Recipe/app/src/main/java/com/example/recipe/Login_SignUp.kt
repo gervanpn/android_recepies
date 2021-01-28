@@ -28,21 +28,12 @@ import kotlinx.android.synthetic.main.fragment_login_sign_up.*
 import androidx.fragment.app.FragmentManager as AndroidxFragmentAppFragmentManager
 import com.example.recipe.List as RecipeList
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [Login_SignUp.newInstance] factory method to
- * create an instance of this fragment.
- */
 class Login_SignUp : Fragment() {
     var thiscontext: Context? = null
     var contain : Int = 0
     //var view : View? = null
     //var google_button : SignInButton? = null
+	private lateinit var binding: FragmentLoginSignUpBinding
     private lateinit var firebaseAuth: FirebaseAuth
     val RC_SIGN_IN: Int = 1
     lateinit var mGoogleSignInClient: GoogleSignInClient
@@ -76,8 +67,36 @@ class Login_SignUp : Fragment() {
            inflater: LayoutInflater, container: ViewGroup?,
            savedInstanceState: Bundle?
        ): View? {
+
+	   // Inflate the layout for this fragment
+	   binding = DataBindingUtil.inflate(inflater,R.layout.fragment_login_sign_up,
+			   container, false )
+			   thiscontext = container.context
+	   var et_email = binding.Email.text
+	   var et_password = binding.password.text
+	   binding.LoginBtn.setOnClickListener {
+		   if (et_email.toString().isEmpty()){
+			   Log.d(TAG, "do_Login:enter valid username")
+		   }
+		   if(et_password.toString().isEmpty()){
+			   Log.d(TAG, "do_Login:enter password ")
+		   }
+		   firebaseAuth.signInWithEmailAndPassword(et_email.toString(),et_password.toString())
+				   .addOnCompleteListener{ task->
+					   Log.d(TAG, "do_Login:$et_email")
+					   Log.d(TAG, "do_Login:$et_password")
+					   if(task.isSuccessful){
+						   Log.d(TAG, "do_Login:you are loggedin ")
+						   val user: FirebaseUser? = firebaseAuth.currentUser
+						   Log.d(TAG, "do_Login:$user")
+					   }else {
+						   Log.d(TAG, "do_Login:login failed")
+					   }
+				   }
+	   }
+	   return binding.root
            if (container != null) {
-               thiscontext = container.context
+
            }
 
            return inflater.inflate(R.layout.fragment_login_sign_up, container, false)     // Inflate the layout for this fragment
@@ -96,6 +115,10 @@ class Login_SignUp : Fragment() {
 
     override fun onStart() {
         super.onStart()
+
+		val currentUser = firebaseAuth.currentUser
+		Log.d(TAG, "do_Login:$currentUser")
+
         configureGoogleSignIn()
         google_button.setOnClickListener {
             signIn()
@@ -199,5 +222,8 @@ class Login_SignUp : Fragment() {
         }
     }
 
-}
+	fun do_Login(){
 
+	}
+
+}
