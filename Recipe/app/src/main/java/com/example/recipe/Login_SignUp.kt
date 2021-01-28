@@ -216,7 +216,7 @@ class Login_SignUp : Fragment() {
                     firebaseAuthWithGoogle(account)
                 }
             } catch (e: ApiException) {
-                Log.d("ERROR",e.toString())
+                Log.d("ERROR", e.toString())
                 //Toast.makeText(this, "Google sign in failed:(", Toast.LENGTH_LONG).show()
             }
         }
