@@ -150,11 +150,11 @@ class Login_SignUp : Fragment() {
 //                    setReorderingAllowed(true)
 //                    addToBackStack("name") // name can be null
 //                }
-//                getFragmentManager()
+                getFragmentManager()
 ////                //supportFragmentManager
-//                    ?.beginTransaction()
-//                    ?.replace(R.id.container, List.Companion.newInstance("", ""))
-//                    ?.commit();
+                    ?.beginTransaction()
+                    ?.replace(R.id.login_SignUp, RecipeList.newInstance("", ""))
+                    ?.commit();
                 //findNavController(view.).navigate(R.id.home2)
             }
              //   startActivity(Home.getLaunchIntent(this))
