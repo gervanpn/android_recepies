@@ -10,13 +10,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.ListFragment
-import androidx.fragment.app.commit
-import androidx.fragment.app.replace
-import androidx.navigation.Navigation
-import com.example.recipe.List.Companion.newInstance
-import com.example.recipe.R.id.home2
-import com.example.recipe.R.id.login_SignUp
 import com.example.recipe.databinding.FragmentLoginSignUpBinding
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
@@ -28,11 +21,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
 import kotlinx.android.synthetic.main.fragment_login_sign_up.*
-import androidx.fragment.app.FragmentManager as AndroidxFragmentAppFragmentManager
-import com.example.recipe.List as RecipeList
 
-//private const val ARG_PARAM1 = "param1"
-//private const val ARG_PARAM2 = "param2"
 
 class Login_SignUp : Fragment() {
     var thiscontext: Context? = null
@@ -85,7 +74,10 @@ class Login_SignUp : Fragment() {
 					   Log.d("TAG", "do_Login:$et_email")
 					   Log.d("TAG", "do_Login:$et_password")
 					   if(task.isSuccessful){
+
 						   Log.d("TAG", "do_Login:you are loggedin ")
+                          // Navigation.createNavigateOnClickListener(R.id.action_home2_to_list)
+
 						   val user: FirebaseUser? = firebaseAuth.currentUser
 						   Log.d("TAG", "do_Login:$user")
 					   }else {
