@@ -110,17 +110,10 @@ class Login_SignUp : Fragment() {
             if (it.isSuccessful) {
                 val user = FirebaseAuth.getInstance().currentUser
                 Log.d("SUC", user?.displayName!!)
-                //Navigation.createNavigateOnClickListener(R.id.action_home2_to_list)
-//                parentFragmentManager.commit {
-//                    replace<RecipeList>(R.layout.fragment_login_sign_up)
-//                    setReorderingAllowed(true)
-//                    addToBackStack("name") // name can be null
-//                }
-//                getFragmentManager()
-//                    ?.beginTransaction()
-//                    ?.replace(R.id.login_SignUp, RecipeList.newInstance("", ""))
-//                    ?.commit();
-
+                val request = NavDeepLinkRequest.Builder
+                        .fromUri("android-app://androidx.navigation.app/list".toUri())
+                        .build()
+                findNavController().navigate(request)
             }
             }
         }
@@ -128,8 +121,6 @@ class Login_SignUp : Fragment() {
     private fun signIn() {
         val signInIntent: Intent = mGoogleSignInClient.signInIntent
         startActivityForResult(signInIntent, RC_SIGN_IN)
-        val user: FirebaseUser? = firebaseAuth.getCurrentUser()
-        Log.d("FB", user.toString())
     }
     private fun configureGoogleSignIn() {
         mGoogleSignInOptions = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -150,7 +141,7 @@ class Login_SignUp : Fragment() {
                 }
             } catch (e: ApiException) {
                 Log.d("ERROR", e.toString())
-                //Toast.makeText(this, "Google sign in failed:(", Toast.LENGTH_LONG).show()
+                Toast.makeText(thiscontext, "Google sign in failed:(", Toast.LENGTH_LONG).show()
             }
         }
     }
