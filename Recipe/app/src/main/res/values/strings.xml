@@ -20,4 +20,5 @@
     <string name="Signup">Sign-Up</string>
 	
 	<string name="web_client_id">513502174301-3pfu4vjo5t5uuu2rqgmv0auplsueo976.apps.googleusercontent.com</string>
+    <string name = "login">Login</string>
 </resources>
