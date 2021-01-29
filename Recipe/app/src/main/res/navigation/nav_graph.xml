@@ -17,8 +17,8 @@
     <fragment
         android:id="@+id/login_SignUp"
         android:name="com.example.recipe.Login_SignUp"
-        android:label="Login"
-        tools:layout="@layout/fragment_login_sign_up" >
+        android:label="Sign In"
+        tools:layout="@layout/fragment_login_sign_up">
         <action
             android:id="@+id/action_login_SignUp_to_list"
             app:destination="@id/list" />
@@ -26,7 +26,7 @@
     <fragment
         android:id="@+id/list"
         android:name="com.example.recipe.List"
-        android:label="List"
+        android:label="Recipes"
         tools:layout="@layout/fragment_list">
         <action
             android:id="@+id/action_list_to_detail_view"
@@ -38,11 +38,11 @@
     <fragment
         android:id="@+id/detail_view"
         android:name="com.example.recipe.Detail_view"
-        android:label="Detail"
+        android:label="Instructions"
         tools:layout="@layout/fragment_detail_view" />
     <fragment
         android:id="@+id/signOut"
         android:name="com.example.recipe.signOut"
-        android:label="Sign-Out"
+        android:label="Sign Out"
         tools:layout="@layout/fragment_sign_out" />
 </navigation>
