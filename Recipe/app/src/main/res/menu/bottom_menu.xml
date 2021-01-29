@@ -13,7 +13,9 @@
     <item android:title="@string/detail_title"
         android:id="@+id/detail_view"
         android:icon="@drawable/ic_detail"/>
-    <item android:title="@string/exit_title"
-        android:id="@+id/signOut"
-        android:icon="@drawable/ic_exit"/>
+    <item
+        android:id = "@+id/signOut"
+        android:icon = "@drawable/ic_exit"
+        android:title = "@string/exit_title"
+        android:visible = "false" />
 </menu>
