@@ -15,8 +15,6 @@ import com.example.recipe.databinding.FragmentHomeBinding
 
 class Home : Fragment() {
 
-    //var google_buton : GoogleSignInButton? = null
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
