@@ -46,11 +46,15 @@ class Login_SignUp : Fragment() {
             binding.signoutBtn.visibility = SignInButton.VISIBLE
             binding.SignUpBtn.visibility =  SignInButton.GONE
             binding.LoginBtn.visibility = SignInButton.GONE
+            binding.Email.visibility = SignInButton.GONE
+            binding.password.visibility = SignInButton.GONE
         } else {
             binding.googleButton.visibility = SignInButton.VISIBLE
             binding.signoutBtn.visibility = SignInButton.GONE
             binding.SignUpBtn.visibility =  SignInButton.VISIBLE
             binding.LoginBtn.visibility = SignInButton.VISIBLE
+            binding.Email.visibility = SignInButton.VISIBLE
+            binding.password.visibility = SignInButton.VISIBLE
         }
     }
        override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -77,7 +81,7 @@ class Login_SignUp : Fragment() {
 
         binding.SignUpBtn.setOnClickListener {
             if (etEmail.toString().isEmpty() || etPassword.toString().isEmpty()) {
-                Toast.makeText(thiscontext, "Email is empty", Toast.LENGTH_LONG).show()
+                Toast.makeText(thiscontext, "Email or Password is empty", Toast.LENGTH_LONG).show()
             } else {
                 firebaseAuth.createUserWithEmailAndPassword(
                     etEmail.toString(),
@@ -103,7 +107,7 @@ class Login_SignUp : Fragment() {
         }
 	   binding.LoginBtn.setOnClickListener {
            if (etEmail.toString().isEmpty() || etPassword.toString().isEmpty()) {
-               Toast.makeText(thiscontext, "Email is empty", Toast.LENGTH_LONG).show()
+               Toast.makeText(thiscontext, "Email or Password is empty", Toast.LENGTH_LONG).show()
            } else {
                firebaseAuth.signInWithEmailAndPassword(etEmail.toString(), etPassword.toString())
                    .addOnCompleteListener { task ->
