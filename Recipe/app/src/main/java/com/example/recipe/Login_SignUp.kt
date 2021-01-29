@@ -54,19 +54,42 @@ class Login_SignUp : Fragment() {
            if (container != null) {
                thiscontext = container.context
            }
-	   var et_email = binding.Email.text
-	   var et_password = binding.password.text
+	   var etEmail = binding.Email.text
+	   var etPassword = binding.password.text
+
+        binding.SignUpBtn.setOnClickListener {
+            if (etEmail.toString().isEmpty()){
+                Log.d("TAG", "do_Login:enter valid username")
+            }
+            if(etPassword.toString().isEmpty()){
+                Log.d("TAG", "do_Login:enter password ")
+            }
+            firebaseAuth.createUserWithEmailAndPassword(etEmail.toString(), etPassword.toString())
+                .addOnCompleteListener{ task ->
+                    if (task.isSuccessful) {
+                        val request = NavDeepLinkRequest.Builder
+                            .fromUri("android-app://androidx.navigation.app/list".toUri())
+                            .build()
+                        findNavController().navigate(request)
+                        Log.d("TAG", "do_Login: you are signed up ")
+                        val user: FirebaseUser? = firebaseAuth.currentUser
+                        Log.d("TAG", "do_Login:$user")
+                    } else {
+                        Log.d("TAG", "do_Login:login failed")
+                        Toast.makeText(thiscontext,"Email already Exists",Toast.LENGTH_LONG).show()
+                    }
+                }
+        }
+
 	   binding.LoginBtn.setOnClickListener {
-		   if (et_email.toString().isEmpty()){
-			   Log.d("TAG", "do_Login:enter valid username")
-		   }
-		   if(et_password.toString().isEmpty()){
-			   Log.d("TAG", "do_Login:enter password ")
-		   }
-		   firebaseAuth.signInWithEmailAndPassword(et_email.toString(),et_password.toString())
+           if (etEmail.toString().isEmpty()){
+               Log.d("TAG", "do_Login:enter valid username")
+           }
+           if(etPassword.toString().isEmpty()){
+               Log.d("TAG", "do_Login:enter password ")
+           }
+		   firebaseAuth.signInWithEmailAndPassword(etEmail.toString(),etPassword.toString())
 				   .addOnCompleteListener{ task->
-					   Log.d("TAG", "do_Login:$et_email")
-					   Log.d("TAG", "do_Login:$et_password")
 					   if(task.isSuccessful){
                            val request = NavDeepLinkRequest.Builder
                                .fromUri("android-app://androidx.navigation.app/list".toUri())
@@ -81,6 +104,7 @@ class Login_SignUp : Fragment() {
 					   }
 				   }
 	   }
+
 	   return binding.root
     }
 
@@ -110,10 +134,17 @@ class Login_SignUp : Fragment() {
             if (it.isSuccessful) {
                 val user = FirebaseAuth.getInstance().currentUser
                 Log.d("SUC", user?.displayName!!)
-                val request = NavDeepLinkRequest.Builder
-                        .fromUri("android-app://androidx.navigation.app/list".toUri())
-                        .build()
-                findNavController().navigate(request)
+                //Navigation.createNavigateOnClickListener(R.id.action_home2_to_list)
+//                parentFragmentManager.commit {
+//                    replace<RecipeList>(R.layout.fragment_login_sign_up)
+//                    setReorderingAllowed(true)
+//                    addToBackStack("name") // name can be null
+//                }
+//                getFragmentManager()
+//                    ?.beginTransaction()
+//                    ?.replace(R.id.login_SignUp, RecipeList.newInstance("", ""))
+//                    ?.commit();
+
             }
             }
         }
@@ -121,6 +152,8 @@ class Login_SignUp : Fragment() {
     private fun signIn() {
         val signInIntent: Intent = mGoogleSignInClient.signInIntent
         startActivityForResult(signInIntent, RC_SIGN_IN)
+        val user: FirebaseUser? = firebaseAuth.getCurrentUser()
+        Log.d("FB", user.toString())
     }
     private fun configureGoogleSignIn() {
         mGoogleSignInOptions = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -141,7 +174,7 @@ class Login_SignUp : Fragment() {
                 }
             } catch (e: ApiException) {
                 Log.d("ERROR", e.toString())
-                Toast.makeText(thiscontext, "Google sign in failed:(", Toast.LENGTH_LONG).show()
+                //Toast.makeText(this, "Google sign in failed:(", Toast.LENGTH_LONG).show()
             }
         }
     }
