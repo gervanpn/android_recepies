@@ -3,7 +3,6 @@ package com.example.recipe
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.text.TextUtils.replace
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -13,47 +12,62 @@ import androidx.core.net.toUri
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavDeepLinkRequest
-import androidx.navigation.Navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.example.recipe.databinding.FragmentLoginSignUpBinding
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.gms.common.SignInButton
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
 
-
-
 class Login_SignUp : Fragment() {
-    var thiscontext: Context? = null
-    var contain : Int = 0
-    //var view : View? = null
-    //var google_button : SignInButton? = null
-	private lateinit var binding : FragmentLoginSignUpBinding
+    private var thiscontext: Context? = null
+
+    private lateinit var binding : FragmentLoginSignUpBinding
+
     private lateinit var firebaseAuth: FirebaseAuth
-    val RC_SIGN_IN: Int = 1
-    lateinit var mGoogleSignInClient: GoogleSignInClient
-    lateinit var mGoogleSignInOptions: GoogleSignInOptions
+    private val RC_SIGN_IN: Int = 1
+    private lateinit var mGoogleSignInClient: GoogleSignInClient
+    private lateinit var mGoogleSignInOptions: GoogleSignInOptions
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         firebaseAuth = FirebaseAuth.getInstance()
     }
 
-       override fun onCreateView(
-           inflater: LayoutInflater, container: ViewGroup?,
-           savedInstanceState: Bundle?
-       ): View? {
+    fun checkSignInStatus(){
+        if (firebaseAuth.currentUser != null) {
+            binding.googleButton.visibility = SignInButton.GONE
+            binding.signoutBtn.visibility = SignInButton.VISIBLE
+        } else {
+            binding.googleButton.visibility = SignInButton.VISIBLE
+            binding.signoutBtn.visibility = SignInButton.GONE
+        }
+    }
+       override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
 
 	   binding = DataBindingUtil.inflate(inflater,R.layout.fragment_login_sign_up,
 			   container, false )
            if (container != null) {
                thiscontext = container.context
            }
+
+           checkSignInStatus()
+
+           binding.signoutBtn.setOnClickListener {
+               mGoogleSignInClient.signOut()
+               firebaseAuth.signOut()
+
+               binding.textView.text = "No User"
+               checkSignInStatus()
+
+           }
+
 	   var etEmail = binding.Email.text
 	   var etPassword = binding.password.text
 
@@ -112,7 +126,7 @@ class Login_SignUp : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val user = FirebaseAuth.getInstance().currentUser
         if (user != null) {
-            binding.textView.text = user?.displayName
+            binding.textView.text = user.displayName
         }
     }
 
@@ -134,17 +148,10 @@ class Login_SignUp : Fragment() {
             if (it.isSuccessful) {
                 val user = FirebaseAuth.getInstance().currentUser
                 Log.d("SUC", user?.displayName!!)
-                //Navigation.createNavigateOnClickListener(R.id.action_home2_to_list)
-//                parentFragmentManager.commit {
-//                    replace<RecipeList>(R.layout.fragment_login_sign_up)
-//                    setReorderingAllowed(true)
-//                    addToBackStack("name") // name can be null
-//                }
-//                getFragmentManager()
-//                    ?.beginTransaction()
-//                    ?.replace(R.id.login_SignUp, RecipeList.newInstance("", ""))
-//                    ?.commit();
-
+                val request = NavDeepLinkRequest.Builder
+                        .fromUri("android-app://androidx.navigation.app/list".toUri())
+                        .build()
+                findNavController().navigate(request)
             }
             }
         }
@@ -157,7 +164,7 @@ class Login_SignUp : Fragment() {
     }
     private fun configureGoogleSignIn() {
         mGoogleSignInOptions = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestIdToken(getString(R.string.web_client_id))
+            .requestIdToken(getString(R.string.default_web_client_id))
             .requestEmail()
             .build()
         mGoogleSignInClient = GoogleSignIn.getClient(thiscontext!!, mGoogleSignInOptions)

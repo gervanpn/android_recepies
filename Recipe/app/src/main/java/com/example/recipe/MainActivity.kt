@@ -23,15 +23,6 @@ class MainActivity : AppCompatActivity() {
         bottomNavigationView.setupWithNavController(navController)
         val appBarConfiguration = AppBarConfiguration(setOf(R.id.home2, R.id.login_SignUp, R.id.list, R.id.detail_view))
         setupActionBarWithNavController(navController, appBarConfiguration)
-
-        // Initialize Firebase Auth
-
-        //var currentUser = mAuth!!.currentUser
-        //setupUI()
-        //configureGoogleSignIn()
-
-
-
     }
 
 
