@@ -126,7 +126,7 @@ class Login_SignUp : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val user = FirebaseAuth.getInstance().currentUser
         if (user != null) {
-            binding.textView.text = user.displayName
+            binding.textView.text = user.email
         }
     }
 
