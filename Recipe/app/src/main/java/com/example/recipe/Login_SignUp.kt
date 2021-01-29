@@ -126,17 +126,10 @@ class Login_SignUp : Fragment() {
             if (it.isSuccessful) {
                 val user = FirebaseAuth.getInstance().currentUser
                 Log.d("SUC", user?.displayName!!)
-                //Navigation.createNavigateOnClickListener(R.id.action_home2_to_list)
-//                parentFragmentManager.commit {
-//                    replace<RecipeList>(R.layout.fragment_login_sign_up)
-//                    setReorderingAllowed(true)
-//                    addToBackStack("name") // name can be null
-//                }
-//                getFragmentManager()
-//                    ?.beginTransaction()
-//                    ?.replace(R.id.login_SignUp, RecipeList.newInstance("", ""))
-//                    ?.commit();
-
+                val request = NavDeepLinkRequest.Builder
+                        .fromUri("android-app://androidx.navigation.app/list".toUri())
+                        .build()
+                findNavController().navigate(request)
             }
             }
         }
