@@ -3,7 +3,6 @@ package com.example.recipe
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.text.TextUtils.replace
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -13,7 +12,6 @@ import androidx.core.net.toUri
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavDeepLinkRequest
-import androidx.navigation.Navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.example.recipe.databinding.FragmentLoginSignUpBinding
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -26,28 +24,22 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
 
-
-
 class Login_SignUp : Fragment() {
-    var thiscontext: Context? = null
-    var contain : Int = 0
-    //var view : View? = null
-    //var google_button : SignInButton? = null
-	private lateinit var binding : FragmentLoginSignUpBinding
+    private var thiscontext: Context? = null
+
+    private lateinit var binding : FragmentLoginSignUpBinding
+
     private lateinit var firebaseAuth: FirebaseAuth
-    val RC_SIGN_IN: Int = 1
-    lateinit var mGoogleSignInClient: GoogleSignInClient
-    lateinit var mGoogleSignInOptions: GoogleSignInOptions
+    private val RC_SIGN_IN: Int = 1
+    private lateinit var mGoogleSignInClient: GoogleSignInClient
+    private lateinit var mGoogleSignInOptions: GoogleSignInOptions
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         firebaseAuth = FirebaseAuth.getInstance()
     }
 
-       override fun onCreateView(
-           inflater: LayoutInflater, container: ViewGroup?,
-           savedInstanceState: Bundle?
-       ): View? {
+       override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
 
 	   binding = DataBindingUtil.inflate(inflater,R.layout.fragment_login_sign_up,
 			   container, false )
@@ -88,7 +80,7 @@ class Login_SignUp : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val user = FirebaseAuth.getInstance().currentUser
         if (user != null) {
-            binding.textView.text = user?.displayName
+            binding.textView.text = user.displayName
         }
     }
 
