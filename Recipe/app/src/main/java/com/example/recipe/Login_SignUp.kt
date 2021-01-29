@@ -67,7 +67,7 @@ class Login_SignUp : Fragment() {
                mGoogleSignInClient.signOut()
                firebaseAuth.signOut()
 
-               binding.textView.text = "No User"
+               binding.textView.text = "Please Sign In"
                checkSignInStatus()
 
            }
