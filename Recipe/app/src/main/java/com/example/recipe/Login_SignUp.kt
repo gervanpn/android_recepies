@@ -18,6 +18,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.gms.common.SignInButton
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
@@ -39,6 +40,15 @@ class Login_SignUp : Fragment() {
         firebaseAuth = FirebaseAuth.getInstance()
     }
 
+    fun checkSignInStatus(){
+        if (firebaseAuth.currentUser != null) {
+            binding.googleButton.visibility = SignInButton.GONE
+            binding.signoutBtn.visibility = SignInButton.VISIBLE
+        } else {
+            binding.googleButton.visibility = SignInButton.VISIBLE
+            binding.signoutBtn.visibility = SignInButton.GONE
+        }
+    }
        override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
 
 	   binding = DataBindingUtil.inflate(inflater,R.layout.fragment_login_sign_up,
@@ -46,6 +56,18 @@ class Login_SignUp : Fragment() {
            if (container != null) {
                thiscontext = container.context
            }
+
+           checkSignInStatus()
+
+           binding.signoutBtn.setOnClickListener {
+               mGoogleSignInClient.signOut()
+               firebaseAuth.signOut()
+
+               binding.textView.text = "No User"
+               checkSignInStatus()
+
+           }
+
 	   var etEmail = binding.Email.text
 	   var etPassword = binding.password.text
 
