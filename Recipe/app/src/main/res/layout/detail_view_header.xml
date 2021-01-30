@@ -12,18 +12,30 @@
             android:layout_column="1"
             android:layout_weight="1"
             android:maxLines="2"
+            android:ellipsize="end"
             android:text="Oats with Mango Slice and Cream"
             android:textColor="@color/black"
             android:textSize="18sp" />
 
-        <TextView
-            android:id="@+id/recipe_rate"
+        <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_column="1"
             android:layout_weight="1"
-            android:gravity="right"
-            android:text="Hello" />
+            android:gravity="right">
+
+            <TextView
+                android:layout_marginTop="5dp"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_detail_rate"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:text="49"
+                android:drawableLeft="@drawable/star"/>
+        </LinearLayout>
     </TableRow>
 
     <TableRow
