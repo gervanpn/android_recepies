@@ -10,18 +10,19 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_column="1"
-            android:layout_weight="1"
+            android:layout_weight="1.5"
             android:maxLines="2"
             android:ellipsize="end"
+            android:textStyle="bold"
             android:text="Oats with Mango Slice and Cream"
             android:textColor="@color/black"
-            android:textSize="18sp" />
+            android:textSize="20sp" />
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_column="1"
-            android:layout_weight="1"
+            android:layout_weight=".5"
             android:gravity="right">
 
             <TextView
