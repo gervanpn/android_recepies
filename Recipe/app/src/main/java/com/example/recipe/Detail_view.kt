@@ -2,10 +2,8 @@ package com.example.recipe
 
 import android.os.Build
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.annotation.RequiresApi
 
@@ -17,7 +15,12 @@ class Detail_view : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
 
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+       inflater!!.inflate(R.menu.detail_page_menu, menu)
+        super.onCreateOptionsMenu(menu, inflater)
     }
 
 
