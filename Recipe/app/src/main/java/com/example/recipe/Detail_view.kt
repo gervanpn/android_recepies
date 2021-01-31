@@ -2,17 +2,11 @@ package com.example.recipe
 
 import android.os.Build
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.annotation.RequiresApi
-import androidx.core.view.isInvisible
-import androidx.databinding.DataBindingUtil
-import com.example.recipe.databinding.FragmentDetailViewBinding
-import com.example.recipe.databinding.FragmentHomeBinding
-
+import com.google.android.material.snackbar.Snackbar
 
 class Detail_view : Fragment() {
 
@@ -22,16 +16,26 @@ class Detail_view : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        setHasOptionsMenu(true)
     }
 
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+       inflater!!.inflate(R.menu.detail_page_menu, menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val id = item!!.itemId
+        if (id == R.id.update) {
+            Snackbar.make(requireView(), "Under construction", Snackbar.LENGTH_SHORT).show()
+        }
+        return super.onOptionsItemSelected(item)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-//        val binding = DataBindingUtil.inflate<FragmentDetailViewBinding>(inflater, R.layout.fragment_detail_view, container, false)
         return inflater.inflate(R.layout.fragment_detail_view, container, false)
 
     }

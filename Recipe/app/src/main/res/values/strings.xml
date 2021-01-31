@@ -31,5 +31,6 @@
     <string name="recipe_ingredients">List of Ingredients</string>
     <string name="recipe_Instructions">Preparation Instructions</string>
     <string name="recipe_status">false</string>
+    <string name="update">Update</string>
 
 </resources>
