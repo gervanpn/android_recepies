@@ -6,15 +6,16 @@ import android.view.*
 import androidx.fragment.app.Fragment
 import android.widget.ImageView
 import androidx.annotation.RequiresApi
+import androidx.databinding.DataBindingUtil
+import com.example.recipe.databinding.FragmentDetailViewBinding
 import com.google.android.material.snackbar.Snackbar
 
 class Detail_view : Fragment() {
 
-    private val recipeImage:ImageView by lazy {
-        requireView().findViewById(R.id.imageView)
-    }
+    private lateinit var binding: FragmentDetailViewBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
     }
@@ -32,18 +33,14 @@ class Detail_view : Fragment() {
         return super.onOptionsItemSelected(item)
     }
 
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_detail_view, container, false)
-
-    }
-
-    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        recipeImage.clipToOutline = true;
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_detail_view, container, false);
+        binding.imageView.clipToOutline = true;
+        return binding.root
     }
 
 }
