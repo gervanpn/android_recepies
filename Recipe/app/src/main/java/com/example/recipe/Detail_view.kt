@@ -2,10 +2,13 @@ package com.example.recipe
 
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import androidx.fragment.app.Fragment
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.annotation.RequiresApi
+import com.google.android.material.snackbar.Snackbar
 
 class Detail_view : Fragment() {
 
@@ -23,6 +26,13 @@ class Detail_view : Fragment() {
         super.onCreateOptionsMenu(menu, inflater)
     }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val id = item!!.itemId
+        if (id == R.id.update) {
+            Snackbar.make(requireView(), "Under construction", Snackbar.LENGTH_SHORT).show()
+        }
+        return super.onOptionsItemSelected(item)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
