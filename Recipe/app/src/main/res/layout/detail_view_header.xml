@@ -39,7 +39,7 @@
                 android:textStyle="bold"
                 android:textColor="#fff"
                 android:text="49"
-                app:drawableLeftCompat="@drawable/star" />
+                app:drawableLeftCompat="@drawable/ic_star" />
         </LinearLayout>
     </TableRow>
 

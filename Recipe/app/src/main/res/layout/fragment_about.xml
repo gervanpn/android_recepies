@@ -25,7 +25,7 @@
             android:layout_height="0dp"
             android:contentDescription="@string/about_image"
             android:scaleType="fitXY"
-            android:src="@drawable/home_bkgrd"
+            android:src="@drawable/slate_bkgrd"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/textView"
@@ -41,29 +41,40 @@
             android:orientation="vertical"
             android:layout_gravity="center">
 
+
             <TextView
                 android:id="@+id/about_text_about"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
-                android:fontFamily="@font/bangers"
+                android:fontFamily="@font/carter_one"
                 android:text="@string/about_title"
                 android:textAlignment="center"
                 android:textColor="@color/green"
-                android:textSize="36sp" />
+                android:textSize="40sp" />
+
+            <ImageView
+                android:id="@+id/text_logo"
+                android:layout_width="280dp"
+                android:layout_height="75dp"
+                android:src="@drawable/text_recipes_wht"
+                android:layout_marginTop="50dp"
+                android:layout_gravity="center"/>
 
             <TextView
                 android:id="@+id/about_text_details"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="154dp"
                 android:layout_marginStart="70dp"
-                android:layout_marginTop="70dp"
+                android:layout_marginTop="50dp"
                 android:layout_marginEnd="70dp"
                 android:layout_marginBottom="50dp"
                 android:fontFamily="@font/antic"
-                android:textColor="@color/black"
                 android:text="@string/about_text_details"
+                android:layout_gravity="center_horizontal"
+                android:textAlignment="center"
+                android:textColor="@color/white"
                 android:textSize="30sp"
                 android:textStyle="bold" />
 
@@ -71,13 +82,14 @@
                 android:id="@+id/about_text_team"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/about_team"
                 android:layout_marginStart="120dp"
                 android:layout_marginEnd="120dp"
+                android:fontFamily="@font/contrail_one"
+                android:text="@string/about_team"
                 android:textAlignment="center"
-                android:textColor="@color/black"
+                android:textColor="@color/green"
                 android:textSize="20sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
         </LinearLayout>
 
 

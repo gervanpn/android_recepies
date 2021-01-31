@@ -4,6 +4,6 @@
     <item
         android:id="@+id/update"
         android:title="@string/update"
-        android:icon="@drawable/edit_recipe"
+        android:icon="@drawable/ic_pencil"
         app:showAsAction="always"/>
 </menu>

@@ -20,12 +20,12 @@ class Detail_view : Fragment() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-       inflater!!.inflate(R.menu.detail_page_menu, menu)
+       inflater.inflate(R.menu.detail_page_menu, menu)
         super.onCreateOptionsMenu(menu, inflater)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        val id = item!!.itemId
+        val id = item.itemId
         if (id == R.id.update) {
             Snackbar.make(requireView(), "Under construction", Snackbar.LENGTH_SHORT).show()
         }
