@@ -8,11 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.annotation.RequiresApi
-import androidx.core.view.isInvisible
-import androidx.databinding.DataBindingUtil
-import com.example.recipe.databinding.FragmentDetailViewBinding
-import com.example.recipe.databinding.FragmentHomeBinding
-
 
 class Detail_view : Fragment() {
 
