@@ -41,8 +41,8 @@
         android:label="Instructions"
         tools:layout="@layout/fragment_detail_view" />
     <fragment
-        android:id="@+id/signOut"
-        android:name="com.example.recipe.signOut"
-        android:label="Sign Out"
-        tools:layout="@layout/fragment_sign_out" />
+        android:id="@+id/aboutFragment"
+        android:name="com.example.recipe.about"
+        android:label="@string/about_title"
+        tools:layout="@layout/fragment_about" />
 </navigation>
