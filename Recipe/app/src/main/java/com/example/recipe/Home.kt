@@ -27,7 +27,7 @@ class Home : Fragment() {
     ): View? {
         val binding = DataBindingUtil.inflate<FragmentHomeBinding>(inflater, R.layout.fragment_home, container, false)
         binding.btnEntree.setOnClickListener(
-                Navigation.createNavigateOnClickListener(R.id.action_home2_to_list)
+                Navigation.createNavigateOnClickListener(R.id.action_home_to_list)
         )
         // Inflate the layout for this fragment
         return binding.root

@@ -13,16 +13,7 @@ import androidx.databinding.DataBindingUtil
 import com.example.recipe.databinding.FragmentDetailViewBinding
 import com.example.recipe.databinding.FragmentHomeBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [Detail_view.newInstance] factory method to
- * create an instance of this fragment.
- */
 class Detail_view : Fragment() {
 
     private val recipeImage:ImageView by lazy {
