@@ -44,9 +44,17 @@ class Login_SignUp : Fragment() {
         if (firebaseAuth.currentUser != null) {
             binding.googleButton.visibility = SignInButton.GONE
             binding.signoutBtn.visibility = SignInButton.VISIBLE
+            binding.SignUpBtn.visibility =  SignInButton.GONE
+            binding.LoginBtn.visibility = SignInButton.GONE
+            binding.Email.visibility = SignInButton.GONE
+            binding.password.visibility = SignInButton.GONE
         } else {
             binding.googleButton.visibility = SignInButton.VISIBLE
             binding.signoutBtn.visibility = SignInButton.GONE
+            binding.SignUpBtn.visibility =  SignInButton.VISIBLE
+            binding.LoginBtn.visibility = SignInButton.VISIBLE
+            binding.Email.visibility = SignInButton.VISIBLE
+            binding.password.visibility = SignInButton.VISIBLE
         }
     }
        override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -63,7 +71,7 @@ class Login_SignUp : Fragment() {
                mGoogleSignInClient.signOut()
                firebaseAuth.signOut()
 
-               binding.textView.text = "No User"
+               binding.textView.text = "Please Sign In"
                checkSignInStatus()
 
            }
@@ -72,51 +80,55 @@ class Login_SignUp : Fragment() {
 	   var etPassword = binding.password.text
 
         binding.SignUpBtn.setOnClickListener {
-            if (etEmail.toString().isEmpty()){
-                Log.d("TAG", "do_Login:enter valid username")
-            }
-            if(etPassword.toString().isEmpty()){
-                Log.d("TAG", "do_Login:enter password ")
-            }
-            firebaseAuth.createUserWithEmailAndPassword(etEmail.toString(), etPassword.toString())
-                .addOnCompleteListener{ task ->
-                    if (task.isSuccessful) {
-                        val request = NavDeepLinkRequest.Builder
-                            .fromUri("android-app://androidx.navigation.app/list".toUri())
-                            .build()
-                        findNavController().navigate(request)
-                        Log.d("TAG", "do_Login: you are signed up ")
-                        val user: FirebaseUser? = firebaseAuth.currentUser
-                        Log.d("TAG", "do_Login:$user")
-                    } else {
-                        Log.d("TAG", "do_Login:login failed")
-                        Toast.makeText(thiscontext,"Email already Exists",Toast.LENGTH_LONG).show()
-                    }
-                }
-        }
+            if (etEmail.toString().isEmpty() || etPassword.toString().isEmpty()) {
+                Toast.makeText(thiscontext, "Email or Password is empty", Toast.LENGTH_LONG).show()
+            } else {
+                firebaseAuth.createUserWithEmailAndPassword(
+                    etEmail.toString(),
+                    etPassword.toString()
+                )
+                    .addOnCompleteListener { task ->
+                        if (task.isSuccessful) {
+                            val request = NavDeepLinkRequest.Builder
+                                .fromUri("android-app://androidx.navigation.app/list".toUri())
+                                .build()
+                            findNavController().navigate(request)
+                            Log.d("TAG", "do_Login: you are signed up ")
+                            val user: FirebaseUser? = firebaseAuth.currentUser
+                            Log.d("TAG", "do_Login:$user")
+                        } else {
+                            Log.d("TAG", "do_Login:login failed")
+                            Toast.makeText(thiscontext, "Email already Exists", Toast.LENGTH_LONG)
+                                .show()
+                        }
 
+                    }
+            }
+        }
 	   binding.LoginBtn.setOnClickListener {
-           if (etEmail.toString().isEmpty()){
-               Log.d("TAG", "do_Login:enter valid username")
-           }
-           if(etPassword.toString().isEmpty()){
-               Log.d("TAG", "do_Login:enter password ")
-           }
-		   firebaseAuth.signInWithEmailAndPassword(etEmail.toString(),etPassword.toString())
-				   .addOnCompleteListener{ task->
-					   if(task.isSuccessful){
+           if (etEmail.toString().isEmpty() || etPassword.toString().isEmpty()) {
+               Toast.makeText(thiscontext, "Email or Password is empty", Toast.LENGTH_LONG).show()
+           } else {
+               firebaseAuth.signInWithEmailAndPassword(etEmail.toString(), etPassword.toString())
+                   .addOnCompleteListener { task ->
+                       if (task.isSuccessful) {
                            val request = NavDeepLinkRequest.Builder
                                .fromUri("android-app://androidx.navigation.app/list".toUri())
                                .build()
                            findNavController().navigate(request)
-						   Log.d("TAG", "do_Login: you are logged in ")
-						   val user: FirebaseUser? = firebaseAuth.currentUser
-						   Log.d("TAG", "do_Login:$user")
-					   }else {
-						   Log.d("TAG", "do_Login:login failed")
-                           Toast.makeText(thiscontext,"Please enter valid credential",Toast.LENGTH_LONG).show()
-					   }
-				   }
+                           Log.d("TAG", "do_Login: you are logged in ")
+                           val user: FirebaseUser? = firebaseAuth.currentUser
+                           Log.d("TAG", "do_Login:$user")
+                       } else {
+                           Log.d("TAG", "do_Login:login failed")
+                           Toast.makeText(
+                               thiscontext,
+                               "Please enter valid credential",
+                               Toast.LENGTH_LONG
+                           ).show()
+                       }
+                   }
+           }
 	   }
 
 	   return binding.root

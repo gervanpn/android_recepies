@@ -3,7 +3,7 @@
       xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:title="@string/home_title"
-        android:id="@+id/home2"
+        android:id="@+id/home"
         android:icon="@drawable/ic_home"/>
     <item android:title="@string/login_title"
         android:id="@+id/login_SignUp"
@@ -13,11 +13,11 @@
         android:icon="@drawable/ic_list"/>
     <item android:title="@string/detail_title"
         android:id="@+id/detail_view"
-        android:icon="@drawable/ic_detail"/>
+        android:icon="@drawable/ic_fastfood"/>
     <item
-        android:id = "@+id/signOut"
-        android:icon = "@drawable/ic_exit"
-        android:title = "@string/exit_title"
-        android:visible = "false"
-        app:showAsAction = "always" />
+        android:title="@string/about_title"
+        android:id="@+id/aboutFragment"
+        android:icon="@drawable/ic_about"
+        app:showAsAction="always"
+        android:visible="false" />
 </menu>
