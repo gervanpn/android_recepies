@@ -37,7 +37,7 @@
     </fragment>
     <fragment
         android:id="@+id/detail_view"
-        android:name="com.example.recipe.Detail_view"
+        android:name="com.example.recipe.DetailView"
         android:label="Instructions"
         tools:layout="@layout/fragment_detail_view" />
     <fragment
