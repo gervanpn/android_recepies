@@ -6,7 +6,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.recipe.databinding.ListItemBinding
 
-class RecipeRecyclerViewAdapter: RecyclerView.Adapter<RecipeViewHolder>() {
+class RecipeAdapter: RecyclerView.Adapter<RecipeViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecipeViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
