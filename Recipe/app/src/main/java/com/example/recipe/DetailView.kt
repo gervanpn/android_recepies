@@ -3,14 +3,13 @@ package com.example.recipe
 import android.os.Build
 import android.os.Bundle
 import android.view.*
-import androidx.fragment.app.Fragment
-import android.widget.ImageView
 import androidx.annotation.RequiresApi
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import com.example.recipe.databinding.FragmentDetailViewBinding
 import com.google.android.material.snackbar.Snackbar
 
-class Detail_view : Fragment() {
+class DetailView : Fragment() {
 
     private lateinit var binding: FragmentDetailViewBinding
 
@@ -38,8 +37,8 @@ class Detail_view : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_detail_view, container, false);
-        binding.imageView.clipToOutline = true;
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_detail_view, container, false)
+        binding.imageView.clipToOutline = true
         return binding.root
     }
 
