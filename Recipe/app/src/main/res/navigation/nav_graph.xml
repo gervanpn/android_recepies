@@ -28,6 +28,11 @@
         android:name="com.example.recipe.List"
         android:label="Recipes"
         tools:layout="@layout/fragment_list">
+        <argument
+            android:name="amount"
+            app:argType="string"
+            android:defaultValue="me"
+            />
         <action
             android:id="@+id/action_list_to_detail_view"
             app:destination="@id/detail_view" />
@@ -44,5 +49,10 @@
         android:id="@+id/aboutFragment"
         android:name="com.example.recipe.about"
         android:label="@string/about_title"
-        tools:layout="@layout/fragment_about" />
+        tools:layout="@layout/fragment_about">
+        <action
+            android:id="@+id/action_aboutFragment_to_home"
+            app:destination="@id/home"
+            app:popUpTo="@id/home" />
+    </fragment>
 </navigation>

@@ -115,6 +115,7 @@ class Login_SignUp : Fragment() {
                            val request = NavDeepLinkRequest.Builder
                                .fromUri("android-app://androidx.navigation.app/list".toUri())
                                .build()
+
                            findNavController().navigate(request)
                            Log.d("TAG", "do_Login: you are logged in ")
                            val user: FirebaseUser? = firebaseAuth.currentUser
