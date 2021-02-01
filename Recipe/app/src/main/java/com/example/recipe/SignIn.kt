@@ -25,7 +25,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
 
-class Login_SignUp : Fragment() {
+class SignIn : Fragment() {
     private var thiscontext: Context? = null
 
     private lateinit var binding : FragmentLoginSignUpBinding

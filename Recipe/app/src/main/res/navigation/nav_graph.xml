@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/login_SignUp"
-        android:name="com.example.recipe.Login_SignUp"
+        android:name="com.example.recipe.SignIn"
         android:label="Sign In"
         tools:layout="@layout/fragment_login_sign_up">
         <action
@@ -37,7 +37,7 @@
     </fragment>
     <fragment
         android:id="@+id/detail_view"
-        android:name="com.example.recipe.Detail_view"
+        android:name="com.example.recipe.DetailView"
         android:label="Instructions"
         tools:layout="@layout/fragment_detail_view" />
     <fragment

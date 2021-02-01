@@ -24,7 +24,7 @@ class List : Fragment() {
     ): View? {
         binding = DataBindingUtil.inflate(inflater,R.layout.fragment_list, container, false)
         binding.recyclerView.layoutManager = LinearLayoutManager(this.context)
-        binding.recyclerView.adapter = RecipeRecyclerViewAdapter()
+        binding.recyclerView.adapter = RecipeAdapter()
         return binding.root
 
     }
