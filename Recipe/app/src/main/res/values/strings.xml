@@ -35,9 +35,8 @@
 
     <string name="about_title">About</string>
     <string name="about_image">About Image</string>
-    <string name="about_team">Developed by:
-        Lalaantika,
-        Roaa, Aos, Moj, David, Dr. Thom &amp; Gervan</string>
+    <string name="about_thanks">Thanks to:</string>
+    <string name="about_team">Development by: Lalaantika, Roaa, Aos, Moj, David, Dr. Thom &amp; Gervan</string>
     <string name="about_text_details">This project was developed in Kotlin as a team project for Willis College.</string>
 
 </resources>
