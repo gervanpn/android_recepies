@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="topnav_text_size">30sp</dimen>
+    <dimen name="topnav_text">30sp</dimen>
+    <dimen name="pad_standard">16dp</dimen>
+    <dimen name="pad_half">8dp</dimen>
 </resources>
