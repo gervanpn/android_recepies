@@ -7,13 +7,15 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/pad_standard">
 
         <TextView
             android:id="@+id/addNew_Title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/pad_standard"
+            android:layout_marginBottom="@dimen/pad_half"
             android:text="@string/add_recipe"
             android:textSize="@dimen/topnav_text"
             android:textColor="@color/green"
@@ -23,11 +25,50 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/pad_standard"
-                android:text="@string/large_text" />
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/title_rTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/pad_standard"
+                    android:layout_marginBottom="@dimen/pad_half"
+                    android:text="Recipe Title:"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/rTitle_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/pad_standard"
+                    android:layout_marginBottom="@dimen/pad_standard"
+                    android:hint="Title"
+                    android:textSize="20sp"/>
+
+                <TextView
+                    android:id="@+id/title_rDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/pad_standard"
+                    android:layout_marginBottom="@dimen/pad_half"
+                    android:text="Enter a description for this recipe:"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/rDescription_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/pad_standard"
+                    android:layout_marginBottom="@dimen/pad_standard"
+                    android:hint="Description"
+                    android:textSize="20sp"/>
+
+
+            </LinearLayout>
+
         </androidx.core.widget.NestedScrollView>
 
     </LinearLayout>

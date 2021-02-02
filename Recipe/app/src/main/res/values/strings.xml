@@ -36,11 +36,21 @@
     <string name="about_title">About</string>
     <string name="about_image">About Image</string>
     <string name="about_thanks">Thanks to:</string>
-    <string name="about_team">Development by: Lalaantika, Roaa, Aos, Moj, David, Dr. Thom &amp; Gervan</string>
+    <string name="about_team">
+        "Development by:\n\n"
+        "Lalaantika\n"
+        "Roaa\n"
+        "Aos\n"
+        "Moj\n"
+        "David\n"
+        "Dr. Thom\n"
+        "&amp;\n"
+        "Gervan\n"
+    </string>
     <string name="about_text_details">This project was developed in Kotlin as a team project for Willis College.</string>
     <string name="blank" />
-    <string name="add_recipe">Add a Recipe</string>
-    <string name="fav_recipe">Favorite Recipe</string>
+    <string name="add_recipe"> Add Recipe </string>
+    <string name="fav_recipe"> Favorite </string>
     <string name="large_text">
         "Material is the metaphor.\n\n"
 
