@@ -21,7 +21,7 @@ class RecipeAdapter: RecyclerView.Adapter<RecipeViewHolder>() {
     }
 
     override fun getItemCount(): Int {
-        return 2
+        return 3
     }
 }
 class RecipeViewHolder(val binding: ListItemBinding): RecyclerView.ViewHolder(binding.root){
