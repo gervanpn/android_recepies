@@ -26,7 +26,6 @@ class List : Fragment() {
         binding.recyclerView.layoutManager = LinearLayoutManager(this.context)
         binding.recyclerView.adapter = RecipeAdapter()
         return binding.root
-
     }
 
 
