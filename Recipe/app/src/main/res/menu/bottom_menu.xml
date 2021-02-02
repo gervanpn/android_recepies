@@ -14,10 +14,7 @@
     <item android:title="@string/detail_title"
         android:id="@+id/detail_view"
         android:icon="@drawable/ic_fastfood"/>
-    <item
-        android:title="@string/about_title"
-        android:id="@+id/aboutFragment"
-        android:icon="@drawable/ic_about"
-        app:showAsAction="always"
-        android:visible="false" />
+
+
+
 </menu>
