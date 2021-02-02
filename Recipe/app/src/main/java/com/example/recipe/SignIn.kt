@@ -41,7 +41,9 @@ class SignIn : Fragment() {
     }
 
     fun checkSignInStatus(){
-        if (firebaseAuth.currentUser != null) {
+        val user = firebaseAuth.currentUser
+        if (user != null) {
+            binding.textView.text = user.email
             binding.googleButton.visibility = SignInButton.GONE
             binding.signoutBtn.visibility = SignInButton.VISIBLE
             binding.SignUpBtn.visibility =  SignInButton.GONE
@@ -49,6 +51,7 @@ class SignIn : Fragment() {
             binding.Email.visibility = SignInButton.GONE
             binding.password.visibility = SignInButton.GONE
         } else {
+            binding.textView.text = getString(R.string.no_user)
             binding.googleButton.visibility = SignInButton.VISIBLE
             binding.signoutBtn.visibility = SignInButton.GONE
             binding.SignUpBtn.visibility =  SignInButton.VISIBLE
@@ -71,7 +74,7 @@ class SignIn : Fragment() {
                mGoogleSignInClient.signOut()
                firebaseAuth.signOut()
 
-               binding.textView.text = "Please Sign In"
+
                checkSignInStatus()
 
            }
@@ -137,10 +140,7 @@ class SignIn : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val user = FirebaseAuth.getInstance().currentUser
-        if (user != null) {
-            binding.textView.text = user.email
-        }
+
     }
 
     override fun onStart() {
