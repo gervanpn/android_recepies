@@ -31,7 +31,7 @@ class SignIn : Fragment() {
     private lateinit var binding : FragmentLoginSignUpBinding
 
     private lateinit var firebaseAuth: FirebaseAuth
-    private val RC_SIGN_IN: Int = 1
+    private val RCSIGNIN: Int = 1
     private lateinit var mGoogleSignInClient: GoogleSignInClient
     private lateinit var mGoogleSignInOptions: GoogleSignInOptions
 
@@ -171,7 +171,7 @@ class SignIn : Fragment() {
 
     private fun signIn() {
         val signInIntent: Intent = mGoogleSignInClient.signInIntent
-        startActivityForResult(signInIntent, RC_SIGN_IN)
+        startActivityForResult(signInIntent, RCSIGNIN)
         val user: FirebaseUser? = firebaseAuth.getCurrentUser()
         Log.d("FB", user.toString())
     }
@@ -185,7 +185,7 @@ class SignIn : Fragment() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == RC_SIGN_IN) {
+        if (requestCode == RCSIGNIN) {
             val task: Task<GoogleSignInAccount> = GoogleSignIn.getSignedInAccountFromIntent(data)
             try {
                 val account = task.getResult(ApiException::class.java)
