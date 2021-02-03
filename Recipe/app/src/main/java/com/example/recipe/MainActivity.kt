@@ -4,18 +4,15 @@ package com.example.recipe
 import android.annotation.SuppressLint
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.view.Window
 import android.view.WindowManager
 import androidx.annotation.RequiresApi
-
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -28,7 +25,7 @@ class MainActivity : AppCompatActivity() {
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_nav_view)
         val navController = findNavController(R.id.fragment)
         bottomNavigationView.setupWithNavController(navController)
-        val appBarConfiguration = AppBarConfiguration(setOf(R.id.aboutFragment, R.id.home, R.id.login_SignUp, R.id.list, R.id.detail_view))
+        val appBarConfiguration = AppBarConfiguration(setOf( R.id.home, R.id.login_SignUp, R.id.list, R.id.detail_view))
         setupActionBarWithNavController(navController, appBarConfiguration)
         // Set Status Bar Color & transparency
         val window: Window = this@MainActivity.window
