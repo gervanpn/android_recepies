@@ -35,7 +35,6 @@ class List : Fragment() {
         binding.recyclerView.layoutManager = LinearLayoutManager(this.context)
         binding.recyclerView.adapter = RecipeAdapter()
         return binding.root
-
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -44,8 +43,8 @@ class List : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        //Log.d("MENU", item.title.toString())
         return NavigationUI.onNavDestinationSelected(item, requireView(). findNavController())
                 || super.onOptionsItemSelected(item)
     }
-
 }
