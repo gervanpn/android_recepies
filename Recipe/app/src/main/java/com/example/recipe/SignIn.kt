@@ -65,9 +65,6 @@ class SignIn : Fragment() {
                thiscontext = container.context
            }
 
-           val etEmail = binding.Email.text
-           val etPassword = binding.password.text
-
            checkSignInStatus()
 
            binding.signoutBtn.setOnClickListener {
@@ -77,7 +74,10 @@ class SignIn : Fragment() {
                binding.textView.text = "Please Sign In"
                checkSignInStatus()
 
+           }
 
+	   var etEmail = binding.Email.text
+	   var etPassword = binding.password.text
 
         binding.SignUpBtn.setOnClickListener {
             if (etEmail.toString().isEmpty() || etPassword.toString().isEmpty()) {
