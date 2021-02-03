@@ -17,7 +17,6 @@ class List : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
-
     }
 
     override fun onCreateView(
@@ -41,6 +40,4 @@ class List : Fragment() {
         return NavigationUI.onNavDestinationSelected(item, requireView(). findNavController())
                 || super.onOptionsItemSelected(item)
     }
-
-
 }

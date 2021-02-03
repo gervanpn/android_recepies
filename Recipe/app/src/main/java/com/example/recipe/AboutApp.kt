@@ -12,7 +12,6 @@ import androidx.navigation.ui.NavigationUI
 import com.example.recipe.databinding.FragmentAboutBinding
 import com.example.recipe.databinding.FragmentLoginSignUpBinding
 
-
 class AboutApp : Fragment() {
 
     private lateinit var binding : FragmentAboutBinding

@@ -1,8 +1,7 @@
 package com.example.recipe
-      
+
 
 import android.annotation.SuppressLint
-import android.annotation.TargetApi
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
@@ -19,10 +18,7 @@ import androidx.navigation.ui.setupWithNavController
 
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
-
 class MainActivity : AppCompatActivity() {
-
-
     @SuppressLint("RestrictedApi")
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,33 +36,11 @@ class MainActivity : AppCompatActivity() {
         // window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS) // deprecated
         // Window.setStatusBarColor(R.color.green) // for API 30+
         window.statusBarColor = ContextCompat.getColor(this@MainActivity, R.color.top_bar)
-
-        navController.addOnDestinationChangedListener { controller, destination, arguments ->
-            Log.d("ABOUT", destination.id.toString())
-            //id.toString())
-            if (destination.id == R.id.action_aboutFragment_to_home) Log.d("ABOUT", "Go Home")
-            /*findNavController().navigate(
-                                    R.id.nav_host_fragment_container
-                                    //bundleOf(Pair("toolbar_title", "My Details Fragment Title"))
-                                )*/
-
-            /* R.id.navigation_home -> "My title"
-                R.id.navigation_task_start -> "My title2"
-                R.id.navigation_task_finish -> "My title3"
-                R.id.navigation_status -> "My title3"
-                R.id.navigation_settings -> "My title4"
-                else -> "Default title"*/
-        //}
-
-        }
     }
-
 
     override fun onStart() {
         super.onStart()
         // Check if user is signed in (non-null) and update UI accordingly.
-
-
     }
 
 }
