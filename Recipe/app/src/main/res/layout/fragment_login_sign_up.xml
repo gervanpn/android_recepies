@@ -50,9 +50,9 @@
 						android:layout_gravity="center"
 						android:layout_marginTop="50dp"
 						android:autofillHints=""
+						android:text=""
 						android:hint="@string/Email"
 						android:inputType="textWebEmailAddress|text"
-						android:text=""
 						app:layout_constraintEnd_toEndOf="parent"
 						app:layout_constraintStart_toStartOf="parent"
 						app:layout_constraintTop_toTopOf="@id/textView" />
@@ -64,9 +64,9 @@
 						android:layout_gravity="center"
 						android:layout_marginTop="20dp"
 						android:autofillHints=""
+						android:text=""
 						android:hint="@string/Password"
 						android:inputType="text|textPassword"
-						android:text=""
 						app:layout_constraintEnd_toEndOf="parent"
 						app:layout_constraintStart_toStartOf="parent"
 						app:layout_constraintTop_toBottomOf="@+id/Email" />

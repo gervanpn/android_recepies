@@ -8,7 +8,7 @@ import android.view.ViewGroup
 
 
 
-class about : Fragment() {
+class AboutApp : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

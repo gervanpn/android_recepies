@@ -1,7 +1,5 @@
 package com.example.recipe
 
-import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
