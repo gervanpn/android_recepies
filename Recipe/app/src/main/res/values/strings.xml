@@ -155,6 +155,8 @@
     <string name="btn_cancel">Cancel</string>
     <string name="btn_save">Save</string>
     <string name="select_category">Select a category for this recipe:</string>
+	<string name = "back">Back</string>
+    <string name = "todo">TODO</string>
 
 
 </resources>

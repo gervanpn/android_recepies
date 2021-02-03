@@ -13,11 +13,9 @@ class RecipeAdapter: RecyclerView.Adapter<RecipeViewHolder>() {
         val binding : ListItemBinding =
                 DataBindingUtil.inflate(layoutInflater,R.layout.list_item,parent,false)
         return RecipeViewHolder(binding)
-
     }
 
     override fun onBindViewHolder(holder: RecipeViewHolder, position: Int) {
-
     }
 
     override fun getItemCount(): Int {
@@ -25,5 +23,4 @@ class RecipeAdapter: RecyclerView.Adapter<RecipeViewHolder>() {
     }
 }
 class RecipeViewHolder(val binding: ListItemBinding): RecyclerView.ViewHolder(binding.root){
-
 }

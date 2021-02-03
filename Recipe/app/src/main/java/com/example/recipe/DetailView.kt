@@ -49,5 +49,4 @@ class DetailView : Fragment() {
         binding.imageView.clipToOutline = true
         return binding.root
     }
-
 }
