@@ -1,6 +1,7 @@
 package com.example.recipe
 
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.databinding.DataBindingUtil
@@ -26,16 +27,19 @@ class List : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        var recipeList: String =""
+
        viewModel = ViewModelProvider(requireActivity()).get(RecipeViewModel::class.java)
 
         viewModel.readFireStorData()
         binding = DataBindingUtil.inflate(inflater,R.layout.fragment_list, container, false)
         binding.recyclerView.layoutManager = LinearLayoutManager(this.context)
-        binding.lifecycleOwner = viewLifecycleOwner
-        binding.recyclerView.adapter = RecipeAdapter(viewModel.inputName.observe(viewLifecycleOwner,
-            Observer {
-            }))
+        binding.lifecycleOwner = this
+        //     binding.lifecycleOwner = viewLifecycleOwner
+//        binding.recyclerView.adapter = RecipeAdapter(viewModel.inputName.observe(viewLifecycleOwner,
+//            Observer {
+//                Log.i("gogo",it.toString())
+//            }))
+
 
 
         return binding.root

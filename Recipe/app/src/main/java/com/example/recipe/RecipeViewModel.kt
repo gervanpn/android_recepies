@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import com.google.firebase.firestore.FirebaseFirestore
 
 class RecipeViewModel:ViewModel() {
-    val inputName = MutableLiveData<String>()
+    var inputName = MutableLiveData<String>()
 init {
        Log.w("TestInit", "Error getting documents.")
 }
@@ -23,7 +23,7 @@ init {
                         result.append(document.data.getValue("recipe_name"))
                        var recipe: Recipe = Recipe()
                         recipe.recipeTitel = result.toString()
-                       // inputName.value = recipe.recipeTitel
+                        inputName.value = recipe.recipeTitel
                         Log.w("Init",  recipe.recipeTitel)
                     }
                 } else {
