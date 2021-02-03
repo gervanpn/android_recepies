@@ -48,5 +48,4 @@ class List : Fragment() {
                 || super.onOptionsItemSelected(item)
     }
 
-
 }
