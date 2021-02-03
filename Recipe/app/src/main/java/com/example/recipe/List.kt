@@ -28,12 +28,12 @@ class List : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-       viewModel = ViewModelProvider(requireActivity()).get(RecipeViewModel::class.java)
+      // viewModel = ViewModelProvider(requireActivity()).get(RecipeViewModel::class.java)
 
-        viewModel.readFireStorData()
+        //viewModel.readFireStorData()
         binding = DataBindingUtil.inflate(inflater,R.layout.fragment_list, container, false)
         binding.recyclerView.layoutManager = LinearLayoutManager(this.context)
-        binding.lifecycleOwner = this
+        binding.lifecycleOwner = RecipeAdapter()
         //     binding.lifecycleOwner = viewLifecycleOwner
 //        binding.recyclerView.adapter = RecipeAdapter(viewModel.inputName.observe(viewLifecycleOwner,
 //            Observer {

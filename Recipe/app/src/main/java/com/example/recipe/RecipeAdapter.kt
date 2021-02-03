@@ -1,14 +1,17 @@
 package com.example.recipe
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.recipe.databinding.ListItemBinding
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlin.collections.List
 
-class RecipeAdapter(val recipeList: List<Recipe>): RecyclerView.Adapter<RecipeViewHolder>() {
-    //val recipeList = ArrayList<Recipe>()
+class RecipeAdapter: RecyclerView.Adapter<RecipeViewHolder>() {
+    //val recipeList: List<Recipe>
+    val recipeList = ArrayList<Recipe>()
         lateinit var recipeViewModel :RecipeViewModel
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecipeViewHolder {
@@ -21,7 +24,7 @@ class RecipeAdapter(val recipeList: List<Recipe>): RecyclerView.Adapter<RecipeVi
     }
 
     override fun onBindViewHolder(holder: RecipeViewHolder, position: Int) {
-        holder.bind(recipeList[position])
+        holder.readFireStorData(recipeList[position])
     }
 
     override fun getItemCount(): Int {
@@ -29,7 +32,25 @@ class RecipeAdapter(val recipeList: List<Recipe>): RecyclerView.Adapter<RecipeVi
     }
 }
 class RecipeViewHolder(val binding: ListItemBinding): RecyclerView.ViewHolder(binding.root){
-        fun bind(recipe: Recipe){
-            recipe.recipeTitel = binding.rTitleView.toString()
-        }
+
+    fun readFireStorData(recipe: Recipe) {
+
+        val db = FirebaseFirestore.getInstance()
+        db.collection("recipes")
+            .get()
+            .addOnCompleteListener { task ->
+                val result: StringBuffer = StringBuffer()
+                if (task.isSuccessful) {
+                    for (document in task.result!!) {
+                        result.append(document.data.getValue("recipe_name"))
+                        var recipe: Recipe = Recipe()
+                        recipe.recipeTitel = result.toString()
+                        recipe.recipeTitel = binding.rTitleView.toString()
+                        Log.w("Init",  recipe.recipeTitel)
+                    }
+                } else {
+                    Log.w("Test", "Error getting documents.", task.exception)
+                }
+            }
+    }
 }
