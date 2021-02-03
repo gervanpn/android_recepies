@@ -21,7 +21,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        R.id.action_aboutFragment_to_home
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_nav_view)
         val navController = findNavController(R.id.fragment)
         bottomNavigationView.setupWithNavController(navController)
