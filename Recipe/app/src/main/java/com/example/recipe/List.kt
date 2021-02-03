@@ -1,6 +1,7 @@
 package com.example.recipe
 
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.databinding.DataBindingUtil
@@ -36,6 +37,7 @@ class List : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        //Log.d("MENU", item.title.toString())
         return NavigationUI.onNavDestinationSelected(item, requireView(). findNavController())
                 || super.onOptionsItemSelected(item)
     }

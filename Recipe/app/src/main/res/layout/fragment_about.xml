@@ -5,6 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".AboutApp">
 
+
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -22,73 +24,87 @@
             app:layout_constraintLeft_toRightOf = "parent" />
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:orientation="vertical"
-            android:layout_gravity="center">
+            android:id = "@+id/linearLayout"
+            android:layout_width = "375dp"
+            android:layout_height = "703dp"
+            android:layout_gravity = "center"
+            android:orientation = "vertical"
+            android:paddingTop = "16dp"
+            app:layout_constraintBottom_toBottomOf = "parent"
+            app:layout_constraintEnd_toEndOf = "parent"
+            app:layout_constraintStart_toStartOf = "parent"
+            app:layout_constraintTop_toTopOf = "parent">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id = "@+id/navigate_button"
+                android:layout_width = "71dp"
+                android:layout_height = "48dp"
+                android:layout_marginStart = "16dp"
+                android:layout_marginLeft = "16dp"
+                android:background = "@drawable/bg_detail_rate"
+                android:text = "@string/back"
+                android:textSize = "20sp"
+                android:textStyle = "bold" />
 
             <ImageView
-                android:id="@+id/text_logo"
-                android:layout_width="280dp"
-                android:layout_height="75dp"
-                android:src="@drawable/text_recipes_wht"
-                android:layout_marginTop="20dp"
-                android:layout_gravity="center"/>
+                android:id = "@+id/text_logo"
+                android:layout_width = "280dp"
+                android:layout_height = "75dp"
+                android:layout_gravity = "center"
+                android:layout_marginTop = "20dp"
+                android:contentDescription = "@string/todo"
+                android:src = "@drawable/text_recipes_wht" />
 
             <TextView
-                android:id="@+id/text_thanks"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:fontFamily="@font/carter_one"
-                android:text="@string/about_thanks"
-                android:textAlignment="center"
-                android:textColor="@color/green"
-                android:textSize="40sp" />
+                android:id = "@+id/text_thanks"
+                android:layout_width = "match_parent"
+                android:layout_height = "wrap_content"
+                android:layout_gravity = "center_horizontal"
+                android:fontFamily = "@font/carter_one"
+                android:text = "@string/about_thanks"
+                android:textAlignment = "center"
+                android:textColor = "@color/green"
+                android:textSize = "40sp" />
 
             <ScrollView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_width = "wrap_content"
+                android:layout_height = "wrap_content">
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:paddingBottom="75dp">
+                    android:layout_width = "wrap_content"
+                    android:layout_height = "wrap_content"
+                    android:orientation = "vertical"
+                    android:paddingBottom = "75dp">
 
                     <TextView
-                        android:id="@+id/about_text_team"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:textAlignment="center"
-                        android:paddingHorizontal="120dp"
-                        android:paddingTop="15dp"
-                        android:fontFamily="@font/contrail_one"
-                        android:text="@string/about_team"
-                        android:textColor="@color/white"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
+                        android:id = "@+id/about_text_team"
+                        android:layout_width = "wrap_content"
+                        android:layout_height = "wrap_content"
+                        android:layout_gravity = "center"
+                        android:fontFamily = "@font/contrail_one"
+                        android:paddingHorizontal = "120dp"
+                        android:paddingTop = "15dp"
+                        android:text = "@string/about_team"
+                        android:textAlignment = "center"
+                        android:textColor = "@color/white"
+                        android:textSize = "18sp"
+                        android:textStyle = "bold" />
 
                     <TextView
-                        android:id="@+id/about_text_details"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="70dp"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginEnd="70dp"
-                        android:layout_marginBottom="50dp"
-                        android:fontFamily="@font/antic"
-                        android:text="@string/about_text_details"
-                        android:layout_gravity="center"
-                        android:textAlignment="center"
-                        android:textColor="@color/white"
-                        android:textSize="30sp"
-                        android:textStyle="bold" />
+                        android:id = "@+id/about_text_details"
+                        android:layout_width = "wrap_content"
+                        android:layout_height = "wrap_content"
+                        android:layout_gravity = "center"
+                        android:layout_marginStart = "70dp"
+                        android:layout_marginTop = "20dp"
+                        android:layout_marginEnd = "70dp"
+                        android:layout_marginBottom = "50dp"
+                        android:fontFamily = "@font/antic"
+                        android:text = "@string/about_text_details"
+                        android:textAlignment = "center"
+                        android:textColor = "@color/white"
+                        android:textSize = "30sp"
+                        android:textStyle = "bold" />
 
                 </LinearLayout>
 

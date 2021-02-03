@@ -1,12 +1,14 @@
 package com.example.recipe
 
 import android.os.Bundle
+import android.util.Log
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.DataBindingUtil.inflate
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.NavigationUI
 import com.example.recipe.databinding.FragmentAboutBinding
 import com.example.recipe.databinding.FragmentLoginSignUpBinding
 
@@ -22,7 +24,9 @@ class AboutApp : Fragment() {
         binding = DataBindingUtil.inflate(inflater,R.layout.fragment_about,
             container, false )
 
-
+        binding.navigateButton.setOnClickListener {
+            NavHostFragment.findNavController(this).navigate(R.id.action_aboutFragment_to_home)
+        }
         /*myToolbar.setNavigationOnClickListener { view ->
             // Navigate somewhere
         }*/
@@ -30,7 +34,6 @@ class AboutApp : Fragment() {
         return binding.root
         //inflater.inflate(R.layout.fragment_about, container, false)
     }
-
 
 }
 

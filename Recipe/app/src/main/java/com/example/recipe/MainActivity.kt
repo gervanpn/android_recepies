@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_nav_view)
         val navController = findNavController(R.id.fragment)
         bottomNavigationView.setupWithNavController(navController)
-        val appBarConfiguration = AppBarConfiguration(setOf(R.id.home, R.id.login_SignUp, R.id.list, R.id.detail_view))
+        val appBarConfiguration = AppBarConfiguration(setOf(R.id.aboutFragment, R.id.home, R.id.login_SignUp, R.id.list, R.id.detail_view))
         setupActionBarWithNavController(navController, appBarConfiguration)
         // Set Status Bar Color & transparency
         val window: Window = this@MainActivity.window
