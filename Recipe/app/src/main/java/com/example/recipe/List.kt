@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -24,11 +26,17 @@ class List : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        var recipeList: String =""
+       viewModel = ViewModelProvider(requireActivity()).get(RecipeViewModel::class.java)
+
         viewModel.readFireStorData()
         binding = DataBindingUtil.inflate(inflater,R.layout.fragment_list, container, false)
         binding.recyclerView.layoutManager = LinearLayoutManager(this.context)
-        binding.recyclerView.adapter = RecipeAdapter()
-        binding.lifecycleOwner = this
+        binding.lifecycleOwner = viewLifecycleOwner
+        binding.recyclerView.adapter = RecipeAdapter(viewModel.inputName.observe(viewLifecycleOwner,
+            Observer {
+            }))
+
 
         return binding.root
 
@@ -39,7 +47,7 @@ class List : Fragment() {
         super.onCreateOptionsMenu(menu, inflater)
         inflater.inflate(R.menu.list_menu, menu)
     }
-      
+
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return NavigationUI.onNavDestinationSelected(item, requireView(). findNavController())
