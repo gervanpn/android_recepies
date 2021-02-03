@@ -8,15 +8,23 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.example.recipe.databinding.FragmentDetailViewBinding
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.auth.FirebaseAuth
 
 class DetailView : Fragment() {
 
     private lateinit var binding: FragmentDetailViewBinding
+    private lateinit var firebaseAuth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
-        setHasOptionsMenu(true)
+        firebaseAuth = FirebaseAuth.getInstance()
+        val user = FirebaseAuth.getInstance().currentUser
+        if (user != null) {
+            setHasOptionsMenu(true)
+        }else {
+            setHasOptionsMenu(false)
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {

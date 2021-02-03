@@ -45,19 +45,19 @@ class SignIn : Fragment() {
         if (user != null) {
             binding.textView.text = user.email
             binding.googleButton.visibility = SignInButton.GONE
-            binding.signoutBtn.visibility = SignInButton.VISIBLE
             binding.SignUpBtn.visibility =  SignInButton.GONE
             binding.LoginBtn.visibility = SignInButton.GONE
             binding.Email.visibility = SignInButton.GONE
             binding.password.visibility = SignInButton.GONE
+            binding.signoutBtn.visibility = SignInButton.VISIBLE
         } else {
             binding.textView.text = getString(R.string.no_user)
             binding.googleButton.visibility = SignInButton.VISIBLE
-            binding.signoutBtn.visibility = SignInButton.GONE
             binding.SignUpBtn.visibility =  SignInButton.VISIBLE
             binding.LoginBtn.visibility = SignInButton.VISIBLE
             binding.Email.visibility = SignInButton.VISIBLE
             binding.password.visibility = SignInButton.VISIBLE
+            binding.signoutBtn.visibility = SignInButton.GONE
         }
     }
        override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
