@@ -47,7 +47,9 @@
                     android:layout_marginHorizontal="@dimen/pad_standard"
                     android:layout_marginBottom="@dimen/pad_standard"
                     android:hint="@string/title"
-                    android:textSize="16sp"/>
+                    android:inputType="textCapWords"
+                    android:textSize="16sp"
+                    android:importantForAutofill="no" />
 
                 <TextView
                     android:id="@+id/title_rDescription"
@@ -65,7 +67,9 @@
                     android:layout_marginHorizontal="@dimen/pad_standard"
                     android:layout_marginBottom="@dimen/pad_standard"
                     android:hint="@string/description"
-                    android:textSize="16sp"/>
+                    android:inputType="textMultiLine"
+                    android:textSize="16sp"
+                    android:importantForAutofill="no" />
 
                 <TextView
                     android:id="@+id/title_rIngredients"
@@ -83,7 +87,9 @@
                     android:layout_marginHorizontal="@dimen/pad_standard"
                     android:layout_marginBottom="@dimen/pad_standard"
                     android:hint="@string/ingredients"
-                    android:textSize="16sp"/>
+                    android:inputType="textMultiLine"
+                    android:textSize="16sp"
+                    android:importantForAutofill="no" />
 
                 <TextView
                     android:id="@+id/title_rInstructions"
@@ -101,7 +107,9 @@
                     android:layout_marginHorizontal="@dimen/pad_standard"
                     android:layout_marginBottom="@dimen/pad_standard"
                     android:hint="@string/instructions"
-                    android:textSize="16sp"/>
+                    android:inputType="textMultiLine"
+                    android:textSize="16sp"
+                    android:importantForAutofill="no" />
 
                 <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"
@@ -114,7 +122,8 @@
                         android:id="@+id/rPicture"
                         android:layout_width="150dp"
                         android:layout_height="150dp"
-                        android:layout_gravity="start" />
+                        android:layout_gravity="start"
+                        android:contentDescription="@string/recipe_image" />
 
                     <Button
                         android:id="@+id/add_picture_btn"
@@ -143,7 +152,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/pad_standard"
-                    android:text="Select a category for this recipe:"
+                    android:text="@string/select_category"
                     android:textSize="16sp" />
 
                 <Spinner
@@ -175,6 +184,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="70dp"
+                        android:layout_marginEnd="70dp"
                         android:text="@string/btn_cancel" />
 
                     <Button
