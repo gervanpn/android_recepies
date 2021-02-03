@@ -152,6 +152,9 @@
     <string name="description_detailed">Enter a description for this recipe:</string>
     <string name="title">Title</string>
     <string name="recipe_title">Recipe Title:</string>
+    <string name="btn_cancel">Cancel</string>
+    <string name="btn_save">Save</string>
+    <string name="select_category">Select a category for this recipe:</string>
 
 
 </resources>
