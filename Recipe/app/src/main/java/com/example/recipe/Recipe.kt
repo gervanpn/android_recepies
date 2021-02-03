@@ -1,7 +1,7 @@
 package com.example.recipe
 
- class Recipe {
-     lateinit var recipeTitel: String
- }
+ data class Recipe (
+      var recipeTitel: String
+     )
 
 
