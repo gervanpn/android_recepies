@@ -9,28 +9,31 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.recipe.databinding.FragmentListBinding
-import com.google.android.gms.common.SignInButton
 import com.google.firebase.auth.FirebaseAuth
 
 class List : Fragment() {
 
     private lateinit var binding: FragmentListBinding
-//    private lateinit var firebaseAuth: FirebaseAuth
-//    val user = firebaseAuth.currentUser!!.email
+    private lateinit var firebaseAuth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setHasOptionsMenu(true)
-//        var firebaseAuth = FirebaseAuth.getInstance()
-//        checkSignInStatus()
+        firebaseAuth = FirebaseAuth.getInstance()
+        val user = FirebaseAuth.getInstance().currentUser
+        if (user != null) {
+            setHasOptionsMenu(true)
+        }else {
+            setHasOptionsMenu(false)
+        }
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         binding = DataBindingUtil.inflate(inflater,R.layout.fragment_list, container, false)
         binding.recyclerView.layoutManager = LinearLayoutManager(this.context)
         binding.recyclerView.adapter = RecipeAdapter()
-
         return binding.root
 
     }
@@ -44,17 +47,5 @@ class List : Fragment() {
         return NavigationUI.onNavDestinationSelected(item, requireView(). findNavController())
                 || super.onOptionsItemSelected(item)
     }
-
-//    fun checkSignInStatus(){
-//        if (firebaseAuth.currentUser != null) {
-//            setHasOptionsMenu(true)
-//            Log.d("Tag", "Signed in")
-//        } else {
-////            setHasOptionsMenu(false)
-//            Log.d("Tag", "Not signed in")
-//        }
-//
-//    }
-
 
 }
