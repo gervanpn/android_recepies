@@ -69,6 +69,10 @@
             android:id="@+id/action_bar_activity_content"
             app:destination="@id/list"
             app:popUpTo="@id/list" />
+        <action
+            android:id = "@+id/action_addRecipe_to_list"
+            app:destination = "@id/list"
+            app:popUpTo = "@id/list" />
 
     </fragment>
 </navigation>
