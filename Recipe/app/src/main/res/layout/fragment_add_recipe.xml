@@ -28,7 +28,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:layout_marginVertical="@dimen/pad_standard">
 
                 <TextView
                     android:id="@+id/title_rTitle"
@@ -36,7 +37,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/pad_standard"
                     android:layout_marginBottom="@dimen/pad_half"
-                    android:text="Recipe Title:"
+                    android:text="@string/recipe_title"
                     android:textSize="20sp" />
 
                 <EditText
@@ -45,8 +46,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/pad_standard"
                     android:layout_marginBottom="@dimen/pad_standard"
-                    android:hint="Title"
-                    android:textSize="20sp"/>
+                    android:hint="@string/title"
+                    android:textSize="16sp"/>
 
                 <TextView
                     android:id="@+id/title_rDescription"
@@ -54,7 +55,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/pad_standard"
                     android:layout_marginBottom="@dimen/pad_half"
-                    android:text="Enter a description for this recipe:"
+                    android:text="@string/description_detailed"
                     android:textSize="20sp" />
 
                 <EditText
@@ -63,8 +64,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/pad_standard"
                     android:layout_marginBottom="@dimen/pad_standard"
-                    android:hint="Description"
-                    android:textSize="20sp"/>
+                    android:hint="@string/description"
+                    android:textSize="16sp"/>
 
                 <TextView
                     android:id="@+id/title_rIngredients"
@@ -72,7 +73,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/pad_standard"
                     android:layout_marginBottom="@dimen/pad_half"
-                    android:text="List your Ingredients here:"
+                    android:text="@string/ingredients_list"
                     android:textSize="20sp" />
 
                 <EditText
@@ -81,8 +82,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/pad_standard"
                     android:layout_marginBottom="@dimen/pad_standard"
-                    android:hint="Ingredients list"
-                    android:textSize="20sp"/>
+                    android:hint="@string/ingredients"
+                    android:textSize="16sp"/>
 
                 <TextView
                     android:id="@+id/title_rInstructions"
@@ -90,7 +91,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/pad_standard"
                     android:layout_marginBottom="@dimen/pad_half"
-                    android:text="Preparation Instructions:"
+                    android:text="@string/preparation"
                     android:textSize="20sp" />
 
                 <EditText
@@ -99,44 +100,71 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/pad_standard"
                     android:layout_marginBottom="@dimen/pad_standard"
-                    android:hint="Instructions"
-                    android:textSize="20sp"/>
+                    android:hint="@string/instructions"
+                    android:textSize="16sp"/>
 
                 <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/pad_standard"
                     android:layout_gravity="center"
-                    android:background="@color/top_bar"
-                    android:outlineSpotShadowColor="@color/top_bar">
+                    android:background="@color/green">
 
                     <ImageView
                         android:id="@+id/rPicture"
                         android:layout_width="150dp"
                         android:layout_height="150dp"
-                        android:layout_gravity="start"
-                        android:tooltipText="Add a Picture"
-                        android:outlineAmbientShadowColor="@color/green"/>
+                        android:layout_gravity="start" />
 
                     <Button
                         android:id="@+id/add_picture_btn"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="75dp"
+                        android:layout_marginStart="75dp"
                         android:layout_gravity="center_vertical|center"
-                        android:text="Add a Photo" />
+                        android:text="@string/add_photo"
+                         />
 
                 </com.google.android.material.card.MaterialCardView>
+
+                <Switch
+                    android:id="@+id/rStatus"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/pad_standard"
+                    android:layout_marginVertical="@dimen/pad_standard"
+                    android:text="@string/status_instruct"
+                    android:textSize="16sp"
+                    android:textColor="@color/top_bar"
+                    tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+                <TextView
+                    android:id="@+id/title_rCategory"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/pad_standard"
+                    android:layout_marginBottom="@dimen/pad_half"
+                    android:text="Select a category for this recipe:"
+                    android:textSize="16sp" />
+
+                <Spinner
+                    android:id="@+id/rCategory"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/pad_standard"
+                    android:layout_marginVertical="@dimen/pad_standard"
+                    android:autofillHints="Any"/>
 
                 <TextView
                     android:id="@+id/user"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/pad_standard"
-                    android:layout_marginVertical="@dimen/pad_standard"
-                    android:text="User:"
-                    android:textSize="20sp" />
-                
+                    android:layout_marginBottom="48dp"
+                    android:text="@string/user_name"
+                    android:textSize="16sp" />
+
             </LinearLayout>
 
         </androidx.core.widget.NestedScrollView>

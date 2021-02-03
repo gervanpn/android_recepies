@@ -51,6 +51,9 @@
     <string name="blank" />
     <string name="add_recipe"> Add Recipe </string>
     <string name="fav_recipe"> Favorite </string>
+    <string name="user_name">User:</string>
+    <string name="status_instruct">Recipe is set to public. Make it private?</string>
+
     <string name="large_text">
         "Material is the metaphor.\n\n"
 
@@ -140,5 +143,15 @@
         "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
         "when a user tries to pick up one of cards.\n\n"
     </string>
+    <string name="add_photo">Add a Photo</string>
+    <string name="instructions">Instructions</string>
+    <string name="preparation">Preparation Instructions:</string>
+    <string name="ingredients">Ingredients list</string>
+    <string name="ingredients_list">List your Ingredients here:</string>
+    <string name="description">Description</string>
+    <string name="description_detailed">Enter a description for this recipe:</string>
+    <string name="title">Title</string>
+    <string name="recipe_title">Recipe Title:</string>
+
 
 </resources>
