@@ -7,14 +7,15 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.recipe.databinding.ListItemBinding
 import kotlin.collections.List
 
-class RecipeAdapter(val recipeList : List<Recipe>): RecyclerView.Adapter<RecipeViewHolder>() {
-
-
+class RecipeAdapter(): RecyclerView.Adapter<RecipeViewHolder>() {
+    val recipeList = ArrayList<Recipe>()
+        lateinit var recipeViewModel :RecipeViewModel
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecipeViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val binding : ListItemBinding =
                 DataBindingUtil.inflate(layoutInflater,R.layout.list_item,parent,false)
+        binding.myViewModel =   recipeViewModel
         return RecipeViewHolder(binding)
 
     }

@@ -24,11 +24,12 @@ class List : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        viewModel.readFireStorData()
         binding = DataBindingUtil.inflate(inflater,R.layout.fragment_list, container, false)
         binding.recyclerView.layoutManager = LinearLayoutManager(this.context)
         binding.recyclerView.adapter = RecipeAdapter()
-        viewModel.readFireStorData()
         binding.lifecycleOwner = this
+
         return binding.root
 
 
@@ -38,7 +39,7 @@ class List : Fragment() {
         super.onCreateOptionsMenu(menu, inflater)
         inflater.inflate(R.menu.list_menu, menu)
     }
-
+      
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return NavigationUI.onNavDestinationSelected(item, requireView(). findNavController())
