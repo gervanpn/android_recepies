@@ -12,6 +12,7 @@ import com.example.recipe.databinding.FragmentListBinding
 class List : Fragment() {
 
     private lateinit var binding: FragmentListBinding
+    private lateinit var viewModel: RecipeViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,8 +27,10 @@ class List : Fragment() {
         binding = DataBindingUtil.inflate(inflater,R.layout.fragment_list, container, false)
         binding.recyclerView.layoutManager = LinearLayoutManager(this.context)
         binding.recyclerView.adapter = RecipeAdapter()
-
+        viewModel.readFireStorData()
+        binding.lifecycleOwner = this
         return binding.root
+
 
     }
 
@@ -36,10 +39,12 @@ class List : Fragment() {
         inflater.inflate(R.menu.list_menu, menu)
     }
 
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return NavigationUI.onNavDestinationSelected(item, requireView(). findNavController())
                 || super.onOptionsItemSelected(item)
     }
+
 
 
 }
