@@ -66,7 +66,77 @@
                     android:hint="Description"
                     android:textSize="20sp"/>
 
+                <TextView
+                    android:id="@+id/title_rIngredients"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/pad_standard"
+                    android:layout_marginBottom="@dimen/pad_half"
+                    android:text="List your Ingredients here:"
+                    android:textSize="20sp" />
 
+                <EditText
+                    android:id="@+id/rIngredients_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/pad_standard"
+                    android:layout_marginBottom="@dimen/pad_standard"
+                    android:hint="Ingredients list"
+                    android:textSize="20sp"/>
+
+                <TextView
+                    android:id="@+id/title_rInstructions"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/pad_standard"
+                    android:layout_marginBottom="@dimen/pad_half"
+                    android:text="Preparation Instructions:"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/rInstructions_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/pad_standard"
+                    android:layout_marginBottom="@dimen/pad_standard"
+                    android:hint="Instructions"
+                    android:textSize="20sp"/>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/pad_standard"
+                    android:layout_gravity="center"
+                    android:background="@color/top_bar"
+                    android:outlineSpotShadowColor="@color/top_bar">
+
+                    <ImageView
+                        android:id="@+id/rPicture"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:layout_gravity="start"
+                        android:tooltipText="Add a Picture"
+                        android:outlineAmbientShadowColor="@color/green"/>
+
+                    <Button
+                        android:id="@+id/add_picture_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="75dp"
+                        android:layout_gravity="center_vertical|center"
+                        android:text="Add a Photo" />
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <TextView
+                    android:id="@+id/user"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/pad_standard"
+                    android:layout_marginVertical="@dimen/pad_standard"
+                    android:text="User:"
+                    android:textSize="20sp" />
+                
             </LinearLayout>
 
         </androidx.core.widget.NestedScrollView>
