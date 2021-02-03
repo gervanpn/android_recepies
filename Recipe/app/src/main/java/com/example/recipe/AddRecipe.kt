@@ -17,6 +17,7 @@ class AddRecipe : Fragment() {
         val binding: FragmentAddRecipeBinding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_add_recipe, container, false)
         binding.cancelBtn.setOnClickListener { view: View ->
+            NavHostFragment.findNavController(this).navigate(R.id.action_addRecipe_to_list)
         }
 
         binding.saveBtn.setOnClickListener { view: View ->
