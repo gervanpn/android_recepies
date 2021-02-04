@@ -31,7 +31,7 @@ class RecipeAdapter(val recipeList: ArrayList<Recipe> = ArrayList()): RecyclerVi
         var item: Recipe = recipeList[position]
         holder.bind(recipeList[position])
         holder?.binding.cardView.setOnClickListener {
-            val bundle = bundleOf("name" to item.recipe_name, "picture" to item.recipe_picture, "instruction" to item.recipe_Instructions )
+            val bundle = bundleOf("name" to item.recipe_name, "picture" to item.recipe_picture, "instruction" to item.recipe_instructions )
             it.findNavController().navigate(R.id.action_list_to_detail_view, bundle)
             Log.d("clicked", "Clicked")
         }

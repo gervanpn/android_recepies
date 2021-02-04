@@ -2,22 +2,22 @@ package com.example.recipe.model
 
 class Recipe constructor() {
     
-    var recipe_Instructions: String? = null
+    var recipe_instructions: String? = ""
     
-    var recipe_category: String? = null
+    var recipe_category: String? = ""
     
-    var recipe_detail: String? = null
+    var recipe_detail: String? = ""
        
-    var recipe_id: String? = null
+    var recipe_id: String? = ""
         get() = this.recipe_id
 
-    var recipe_ingredients: String? = null
+    var recipe_ingredients: String? = ""
 
-    var recipe_name: String? = null
+    var recipe_name: String? = ""
 
-    var recipe_picture: String? = null
+    var recipe_picture: String? = ""
 
-    var user_id: String? = null
+    var user_id: String? = ""
 
     var recipe_status: Boolean = false
 
