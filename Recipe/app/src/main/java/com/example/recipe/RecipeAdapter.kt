@@ -1,25 +1,18 @@
 package com.example.recipe
 
-import android.icu.text.ListFormatter
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.core.net.toUri
+import androidx.core.os.bundleOf
 import androidx.databinding.DataBindingUtil
-import androidx.navigation.NavDeepLinkRequest
-import androidx.navigation.NavDeepLinkRequest.Builder.fromUri
-import androidx.navigation.Navigation
-import androidx.navigation.Navigation.findNavController
-import androidx.navigation.fragment.findNavController
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.recipe.databinding.ListItemBinding
-import com.google.firebase.firestore.FirebaseFirestore
+import com.example.recipe.model.Recipe
+import com.example.recipe.util.DownloadImage
 import kotlin.collections.List
 
-class RecipeAdapter(val recipeList: ArrayList<Recipe>): RecyclerView.Adapter<RecipeViewHolder>() {
-    //val recipeList: List<Recipe>
-    //val recipeList = ArrayList<Recipe>()
-      // lateinit var recipeViewModel :RecipeViewModel
+class RecipeAdapter(val recipeList: ArrayList<Recipe> = ArrayList()): RecyclerView.Adapter<RecipeAdapter.RecipeViewHolder>() {
     fun updateRecipe(newRecisList:List<Recipe>){
         recipeList.clear()
         recipeList.addAll(newRecisList)
@@ -28,47 +21,29 @@ class RecipeAdapter(val recipeList: ArrayList<Recipe>): RecyclerView.Adapter<Rec
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecipeViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val binding : ListItemBinding =
-                DataBindingUtil.inflate(layoutInflater,R.layout.list_item,parent,false)
-        //binding.myViewModel =   recipeViewModel
+            DataBindingUtil.inflate(layoutInflater,R.layout.list_item,parent,false)
         return RecipeViewHolder(binding)
-
     }
 
     override fun onBindViewHolder(holder: RecipeViewHolder, position: Int) {
+        var item: Recipe = recipeList[position]
         holder.bind(recipeList[position])
-        holder.binding.cardView.setOnClickListener {
-            Navigation.findNavController(it).navigate(R.id.action_list_to_detail_view)
+        holder?.binding.cardView.setOnClickListener {
+            val bundle = bundleOf("name" to item.recipe_name, "picture" to item.recipe_picture, "instruction" to item.recipe_instructions )
+            it.findNavController().navigate(R.id.action_list_to_detail_view, bundle)
+            Log.d("clicked", "Clicked")
         }
-        //holder.readFireStorData(recipeList[position])
     }
 
     override fun getItemCount(): Int {
         return recipeList.size
     }
-}
-class RecipeViewHolder(val binding: ListItemBinding): RecyclerView.ViewHolder(binding.root){
-fun bind(recipe: Recipe){
-    binding.rTitleView.text = recipe.recipeTitel
-}
 
+ inner class RecipeViewHolder(val binding: ListItemBinding): RecyclerView.ViewHolder(binding.root) {
+     fun bind(recipe: Recipe) {
+         val imageView = binding.rImageView
+         DownloadImage(imageView).execute(recipe.recipe_picture)
+         binding.rTitleView.text = recipe.recipe_name
+     }
+ }
 }
-
-//    fun readFireStorData(recipe: Recipe) {
-//
-//        val db = FirebaseFirestore.getInstance()
-//        db.collection("recipes")
-//            .get()
-//            .addOnCompleteListener { task ->
-//                val result: StringBuffer = StringBuffer()
-//                if (task.isSuccessful) {
-//                    for (document in task.result!!) {
-//                        result.append(document.data.getValue("recipe_name"))
-//                        recipe.recipeTitel = result.toString()
-//                        recipe.recipeTitel = binding.rTitleView.toString()
-//                        Log.w("go",  result.toString())
-//                    }
-//                } else {
-//                    Log.w("Test", "Error getting documents.", task.exception)
-//                }
-//            }
-//    }
