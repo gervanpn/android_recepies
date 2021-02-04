@@ -32,19 +32,19 @@ class RecipeViewModel:ViewModel() {
 //            }
 //        })
 
-    db.collection("recipes")
+    db.collection("recipez")
         .get()
         .addOnCompleteListener { task ->
             val result: StringBuffer = StringBuffer()
             if (task.isSuccessful) {
                 for (document in task.result!!) {
-                    result.append(document.data.getValue("recipe_name"))
+                    result.append(document.data.getValue("recipeName")).append("\n\n")
                     val recipe = Recipe(result.toString())
                     val recipeList = arrayListOf<Recipe>(recipe)
                         recipes.value = recipeList
 
                    // var recipe :Recipe = Recipe("")
-
+                    Log.i("gogo",recipes.value.toString())
                     Log.i("gog",recipeList.size.toString())
                 }
             } else {

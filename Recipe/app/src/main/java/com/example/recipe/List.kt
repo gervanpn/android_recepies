@@ -54,7 +54,8 @@ class List : Fragment() {
             recipes.let {
                     recipesListAdapter.updateRecipe(recipes)
 
-                Log.i("did",it.toString())
+
+                Log.i("did",recipes.toString())
             }
         })
     }
