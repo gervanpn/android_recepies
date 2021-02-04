@@ -58,6 +58,7 @@ class List : Fragment() {
         viewModel.recipesLiveData.observe(viewLifecycleOwner, Observer {recipes ->
             recipes.let {
                 recipesListAdapter.updateRecipe(recipes)
+                recipes.clear()
                 Log.i("did",it.toString())
             }
         })
