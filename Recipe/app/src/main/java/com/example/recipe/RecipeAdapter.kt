@@ -9,11 +9,15 @@ import com.example.recipe.databinding.ListItemBinding
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlin.collections.List
 
-class RecipeAdapter: RecyclerView.Adapter<RecipeViewHolder>() {
+class RecipeAdapter(val recipeList: ArrayList<Recipe> = ArrayList<Recipe>()): RecyclerView.Adapter<RecipeViewHolder>() {
     //val recipeList: List<Recipe>
-    val recipeList = ArrayList<Recipe>()
+    //val recipeList = ArrayList<Recipe>()
       // lateinit var recipeViewModel :RecipeViewModel
-
+    fun updateRecipe(newRecisList:List<Recipe>){
+        recipeList.clear()
+        recipeList.addAll(newRecisList)
+        notifyDataSetChanged()
+    }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecipeViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val binding : ListItemBinding =

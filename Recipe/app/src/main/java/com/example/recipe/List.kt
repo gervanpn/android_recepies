@@ -13,9 +13,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.recipe.databinding.FragmentListBinding
 
 class List : Fragment() {
-
+    private val recipesListAdapter = RecipeAdapter(arrayListOf())
     private lateinit var binding: FragmentListBinding
     private lateinit var viewModel: RecipeViewModel
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,23 +29,33 @@ class List : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
+
        viewModel = ViewModelProvider(requireActivity()).get(RecipeViewModel::class.java)
 
         viewModel.readFireStorData()
         binding = DataBindingUtil.inflate(inflater,R.layout.fragment_list, container, false)
         binding.recyclerView.layoutManager = LinearLayoutManager(this.context)
-        binding.recyclerView.adapter = RecipeAdapter()
+        observerViewModel()
+        binding.recyclerView.apply {
+            adapter = recipesListAdapter
+        }
+       // binding.recyclerView.adapter = RecipeAdapter()
+
         //     binding.lifecycleOwner = viewLifecycleOwner
 //        binding.recyclerView.adapter = RecipeAdapter(viewModel.inputName.observe(viewLifecycleOwner,
 //            Observer {
 //                Log.i("gogo",it.toString())
 //            }))
 
-
-
         return binding.root
-
-
+    }
+    fun observerViewModel(){
+        viewModel.recipes.observe(viewLifecycleOwner, Observer {recipes ->
+            recipes.let {
+                    recipesListAdapter.updateRecipe(recipes)
+                Log.i("did",it.toString())
+            }
+        })
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {

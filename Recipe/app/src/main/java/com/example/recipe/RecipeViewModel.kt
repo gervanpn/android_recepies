@@ -4,10 +4,12 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.google.firebase.firestore.FirebaseFirestore
+import kotlin.collections.List
 
 class RecipeViewModel:ViewModel() {
 
-    var inputName = MutableLiveData<String>()
+    var recipes = MutableLiveData<List<Recipe>>()
+
 //init {
 //       Log.w("TestInit", "Error getting documents.")
 //}
@@ -21,10 +23,12 @@ fun readFireStorData() {
             if (task.isSuccessful) {
                 for (document in task.result!!) {
                     result.append(document.data.getValue("recipe_name"))
-                    var recipe :Recipe = Recipe()
-                    recipe.recipeTitel = result.toString()
-                    recipe.recipeTitel = inputName.toString()
-                    Log.w("go", recipe.recipeTitel)
+                    val recipe = Recipe(result.toString())
+                    val recipeList = arrayListOf<Recipe>(recipe)
+                    recipes.value = recipeList
+                   // var recipe :Recipe = Recipe("")
+
+                  //  Log.w("go", recipe.recipeTitel)
                 }
             } else {
                 Log.w("Test", "Error getting documents.", task.exception)
