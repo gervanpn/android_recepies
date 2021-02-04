@@ -9,6 +9,9 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:paddingBottom="@dimen/pad_standard">
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/addNew_Title"
@@ -49,23 +52,6 @@
                     android:hint="@string/title"
                     android:textSize="16sp"/>
 
-                <TextView
-                    android:id="@+id/title_rDescription"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/pad_standard"
-                    android:layout_marginBottom="@dimen/pad_half"
-                    android:text="@string/description_detailed"
-                    android:textSize="20sp" />
-
-                <EditText
-                    android:id="@+id/rDescription_text"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/pad_standard"
-                    android:layout_marginBottom="@dimen/pad_standard"
-                    android:hint="@string/description"
-                    android:textSize="16sp"/>
 
                 <TextView
                     android:id="@+id/title_rIngredients"
@@ -110,11 +96,7 @@
                     android:layout_gravity="center"
                     android:background="@color/green">
 
-                    <ImageView
-                        android:id="@+id/rPicture"
-                        android:layout_width="150dp"
-                        android:layout_height="150dp"
-                        android:layout_gravity="start" />
+
 
                     <Button
                         android:id="@+id/add_picture_btn"
@@ -127,48 +109,8 @@
                          />
 
                 </com.google.android.material.card.MaterialCardView>
-
-                <Switch
-                    android:id="@+id/rStatus"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/pad_standard"
-                    android:layout_marginVertical="@dimen/pad_standard"
-                    android:text="@string/status_instruct"
-                    android:textSize="16sp"
-                    android:textColor="@color/top_bar"
-                    tools:ignore="UseSwitchCompatOrMaterialXml" />
-
-                <TextView
-                    android:id="@+id/title_rCategory"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/pad_standard"
-                    android:layout_marginBottom="@dimen/pad_half"
-                    android:text="Select a category for this recipe:"
-                    android:textSize="16sp" />
-
-                <Spinner
-                    android:id="@+id/rCategory"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/pad_standard"
-                    android:layout_marginVertical="@dimen/pad_standard"
-                    android:autofillHints="Any"/>
-
-                <TextView
-                    android:id="@+id/user"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/pad_standard"
-                    android:layout_marginBottom="48dp"
-                    android:text="@string/user_name"
-                    android:textSize="16sp" />
-
             </LinearLayout>
-
         </androidx.core.widget.NestedScrollView>
-
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
     </LinearLayout>
-
 </layout>

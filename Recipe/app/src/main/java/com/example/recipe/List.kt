@@ -49,10 +49,11 @@ class List : Fragment() {
 
         return binding.root
     }
-    fun observerViewModel(){
+   private fun observerViewModel(){
         viewModel.recipes.observe(viewLifecycleOwner, Observer {recipes ->
             recipes.let {
                     recipesListAdapter.updateRecipe(recipes)
+
                 Log.i("did",it.toString())
             }
         })

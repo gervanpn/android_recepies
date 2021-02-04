@@ -65,5 +65,8 @@
         android:name="com.example.recipe.AddRecipe"
         android:label="Add or Update Recipe"
         tools:layout="@layout/fragment_add_recipe" >
+        <action
+            android:id="@+id/action_addRecipe_to_list"
+            app:destination="@id/list" />
     </fragment>
 </navigation>

@@ -1,15 +1,22 @@
 package com.example.recipe
 
+import android.icu.text.ListFormatter
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.net.toUri
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.NavDeepLinkRequest
+import androidx.navigation.NavDeepLinkRequest.Builder.fromUri
+import androidx.navigation.Navigation
+import androidx.navigation.Navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.recipe.databinding.ListItemBinding
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlin.collections.List
 
-class RecipeAdapter(val recipeList: ArrayList<Recipe> = ArrayList<Recipe>()): RecyclerView.Adapter<RecipeViewHolder>() {
+class RecipeAdapter(val recipeList: ArrayList<Recipe>): RecyclerView.Adapter<RecipeViewHolder>() {
     //val recipeList: List<Recipe>
     //val recipeList = ArrayList<Recipe>()
       // lateinit var recipeViewModel :RecipeViewModel
@@ -29,6 +36,9 @@ class RecipeAdapter(val recipeList: ArrayList<Recipe> = ArrayList<Recipe>()): Re
 
     override fun onBindViewHolder(holder: RecipeViewHolder, position: Int) {
         holder.bind(recipeList[position])
+        holder.binding.cardView.setOnClickListener {
+            Navigation.findNavController(it).navigate(R.id.action_list_to_detail_view)
+        }
         //holder.readFireStorData(recipeList[position])
     }
 
@@ -39,8 +49,8 @@ class RecipeAdapter(val recipeList: ArrayList<Recipe> = ArrayList<Recipe>()): Re
 class RecipeViewHolder(val binding: ListItemBinding): RecyclerView.ViewHolder(binding.root){
 fun bind(recipe: Recipe){
     binding.rTitleView.text = recipe.recipeTitel
-
 }
+
 }
 
 //    fun readFireStorData(recipe: Recipe) {
