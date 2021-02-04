@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
+    <list default="true" id="648b7c6c-699f-4051-9eac-b71033434bd9" name="Default Changelist" comment="" />
+=======
     <list default="true" id="a4f416be-a701-430e-b532-faff06247b38" name="Default Changelist" comment="" />
+>>>>>>> Develop
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,7 +14,11 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
+<<<<<<< HEAD
+  <component name="ProjectId" id="1nZs3LPphQDaJWO2qTu3sc0CRqA" />
+=======
   <component name="ProjectId" id="1nhvsLcY4xccd2AjBeQ1FHOsMGj" />
+>>>>>>> Develop
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -20,6 +28,10 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
+<<<<<<< HEAD
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../Andriod-tic-tac-toe/app" />
+=======
+>>>>>>> Develop
     <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
   </component>
   <component name="SvnConfiguration">
@@ -27,6 +39,22 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
+<<<<<<< HEAD
+      <changelist id="648b7c6c-699f-4051-9eac-b71033434bd9" name="Default Changelist" comment="" />
+      <created>1611608746501</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1611608746501</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="463" y="118" key="FileChooserDialogImpl" timestamp="1611609235227">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="463" y="118" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1611609235227" />
+  </component>
+=======
       <changelist id="a4f416be-a701-430e-b532-faff06247b38" name="Default Changelist" comment="" />
       <created>1611855342798</created>
       <option name="number" value="Default" />
@@ -35,4 +63,5 @@
     </task>
     <servers />
   </component>
+>>>>>>> Develop
 </project>
