@@ -17,21 +17,16 @@ class AboutApp : Fragment() {
     }
 
     override fun onCreateView( inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        binding = DataBindingUtil.inflate(inflater,R.layout.fragment_about,
-            container, false )
+        binding = DataBindingUtil.inflate(
+            inflater, R.layout.fragment_about,
+            container, false
+        )
 
         binding.navigateButton.setOnClickListener {
             NavHostFragment.findNavController(this).navigate(R.id.action_aboutFragment_to_home)
         }
-
-
-        /*myToolbar.setNavigationOnClickListener { view ->
-            // Navigate somewhere
-        }*/
-
         return binding.root
         //inflater.inflate(R.layout.fragment_about, container, false)
     }
-
 }
 
