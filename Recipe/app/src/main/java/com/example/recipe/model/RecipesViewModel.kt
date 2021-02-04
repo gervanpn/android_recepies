@@ -9,7 +9,10 @@ import com.google.firebase.firestore.FirebaseFirestore
 
 
 class RecipesViewModel(app: Application): AndroidViewModel(app) {
-    
+
+    init {
+        Log.d("ViewModel", "Started")
+    }
     val mapper = ObjectMapper()
     val recipes = ArrayList<Recipe>()
     val recipesLiveData = MutableLiveData<ArrayList<Recipe>>()
