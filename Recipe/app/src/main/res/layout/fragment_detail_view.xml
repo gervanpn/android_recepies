@@ -45,12 +45,14 @@
                     android:paddingBottom="15dp">
 
                     <include
+                        android:id="@+id/detail_header_view"
                         layout="@layout/detail_view_header"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="20dp" />
 
                     <include
+                        android:id="@+id/detail_view_description"
                         layout="@layout/detail_view_description"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

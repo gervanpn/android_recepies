@@ -3,11 +3,14 @@ package com.example.recipe
 
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import androidx.annotation.RequiresApi
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.example.recipe.databinding.FragmentDetailViewBinding
+import com.example.recipe.model.Recipe
+import com.example.recipe.util.DownloadImage
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 
@@ -47,6 +50,14 @@ class DetailView : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_detail_view, container, false)
+        val recipeTitle = binding.detailHeaderView?.recipeName
+        val recipeDescription = binding.detailViewDescription?.recipeDescriptionBody
+        val recipeName = arguments?.getString("name")
+        val recipeImage = arguments?.getString("picture")
+        val recipeInstruction = arguments?.getString("instruction")
+        DownloadImage(binding.imageView).execute(recipeImage)
+        recipeTitle?.setText(recipeName)
+        recipeDescription?.setText(recipeInstruction)
         binding.imageView?.clipToOutline ?: true
         return binding.root
     }

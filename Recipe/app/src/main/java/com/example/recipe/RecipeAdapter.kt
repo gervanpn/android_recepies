@@ -4,6 +4,7 @@ import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.Navigation
 import androidx.navigation.findNavController
@@ -30,7 +31,8 @@ class RecipeAdapter(val recipeList: ArrayList<Recipe> = ArrayList()): RecyclerVi
         var item: Recipe = recipeList[position]
         holder.bind(recipeList[position])
         holder?.binding.cardView.setOnClickListener {
-            it.findNavController().navigate(R.id.action_list_to_detail_view)
+            val bundle = bundleOf("name" to item.recipe_name, "picture" to item.recipe_picture, "instruction" to item.recipe_Instructions )
+            it.findNavController().navigate(R.id.action_list_to_detail_view, bundle)
             Log.d("clicked", "Clicked")
         }
     }
