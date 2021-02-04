@@ -13,7 +13,8 @@ import com.example.recipe.util.DownloadImage
 import kotlin.collections.List
 
 class RecipeAdapter(val recipeList: ArrayList<Recipe> = ArrayList()): RecyclerView.Adapter<RecipeAdapter.RecipeViewHolder>() {
-    fun updateRecipe(newRecisList:List<Recipe>){
+    fun updateRecipe(newRecisList:ArrayList<Recipe>){
+        Log.d("size", "" + newRecisList.size)
         recipeList.clear()
         recipeList.addAll(newRecisList)
         notifyDataSetChanged()
