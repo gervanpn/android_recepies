@@ -6,7 +6,7 @@ import android.os.AsyncTask
 import android.widget.ImageView
 import java.net.URL
 
-internal class DownloadImage(var imageView: ImageView) : AsyncTask<String?, Void?, Bitmap?>() {
+class DownloadImage(var imageView: ImageView) : AsyncTask<String?, Void?, Bitmap?>() {
     /*
         doInBackground(Params... params)
             Override this method to perform a computation on a background thread.
