@@ -1,5 +1,6 @@
 package com.example.recipe
 
+import android.net.Uri
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -7,6 +8,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.recipe.databinding.ListItemBinding
 import com.example.recipe.model.Recipe
+import com.example.recipe.util.DownloadImage
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlin.collections.List
 
@@ -33,7 +35,8 @@ class RecipeAdapter(val recipeList: ArrayList<Recipe> = ArrayList<Recipe>()): Re
 }
 class RecipeViewHolder(val binding: ListItemBinding): RecyclerView.ViewHolder(binding.root){
     fun bind(recipe: Recipe){
+        val imageView = binding.rImageView
+        DownloadImage(imageView).execute(recipe.recipe_picture)
         binding.rTitleView.text = recipe.recipe_name
-
     }
 }
