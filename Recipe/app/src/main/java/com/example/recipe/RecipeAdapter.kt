@@ -1,4 +1,3 @@
-
 package com.example.recipe
 
 import android.util.Log
@@ -8,37 +7,59 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.recipe.databinding.ListItemBinding
 import com.example.recipe.model.Recipe
+import com.google.firebase.firestore.FirebaseFirestore
+import kotlin.collections.List
 
-class RecipeAdapter: RecyclerView.Adapter<RecipeViewHolder>() {
-
-    var recipes = ArrayList<Recipe>()
-
+class RecipeAdapter(val recipeList: ArrayList<Recipe> = ArrayList<Recipe>()): RecyclerView.Adapter<RecipeViewHolder>() {
+    //val recipeList: List<Recipe>
+    //val recipeList = ArrayList<Recipe>()
+    // lateinit var recipeViewModel :RecipeViewModel
+    fun updateRecipe(newRecisList:List<Recipe>){
+        recipeList.clear()
+        recipeList.addAll(newRecisList)
+        notifyDataSetChanged()
+    }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecipeViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
-        val binding: ListItemBinding =
-            DataBindingUtil.inflate(layoutInflater, R.layout.list_item, parent, false)
+        val binding : ListItemBinding =
+            DataBindingUtil.inflate(layoutInflater,R.layout.list_item,parent,false)
+        //binding.myViewModel =   recipeViewModel
         return RecipeViewHolder(binding)
+
     }
 
     override fun onBindViewHolder(holder: RecipeViewHolder, position: Int) {
-        holder.bind(recipes.get(position))
-        Log.d("size inside", "" + recipes.size)
+        holder.bind(recipeList[position])
+        //holder.readFireStorData(recipeList[position])
     }
 
     override fun getItemCount(): Int {
-        Log.d("size", "" + recipes.size)
-        return recipes.size
+        return recipeList.size
+    }
+}
+class RecipeViewHolder(val binding: ListItemBinding): RecyclerView.ViewHolder(binding.root){
+    fun bind(recipe: Recipe){
+        binding.rTitleView.text = recipe.recipe_name
+
     }
 }
 
-class RecipeViewHolder(val binding: ListItemBinding): RecyclerView.ViewHolder(binding.root) {
-
-    val recipeTitle = binding.rTitleView
-    val recipePicture = binding.rImageView
-
-    fun bind(recipe: Recipe) {
-        this.recipeTitle.setText(recipe.recipe_name)
-        recipePicture.setImageResource(R.drawable.recipe_test_image)
-    }
-
-}
+//    fun readFireStorData(recipe: Recipe) {
+//
+//        val db = FirebaseFirestore.getInstance()
+//        db.collection("recipes")
+//            .get()
+//            .addOnCompleteListener { task ->
+//                val result: StringBuffer = StringBuffer()
+//                if (task.isSuccessful) {
+//                    for (document in task.result!!) {
+//                        result.append(document.data.getValue("recipe_name"))
+//                        recipe.recipeTitel = result.toString()
+//                        recipe.recipeTitel = binding.rTitleView.toString()
+//                        Log.w("go",  result.toString())
+//                    }
+//                } else {
+//                    Log.w("Test", "Error getting documents.", task.exception)
+//                }
+//            }
+//    }
