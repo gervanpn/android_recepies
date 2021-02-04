@@ -11,9 +11,6 @@ import com.google.firebase.firestore.FirebaseFirestore
 import kotlin.collections.List
 
 class RecipeAdapter(val recipeList: ArrayList<Recipe> = ArrayList<Recipe>()): RecyclerView.Adapter<RecipeViewHolder>() {
-    //val recipeList: List<Recipe>
-    //val recipeList = ArrayList<Recipe>()
-    // lateinit var recipeViewModel :RecipeViewModel
     fun updateRecipe(newRecisList:List<Recipe>){
         recipeList.clear()
         recipeList.addAll(newRecisList)
@@ -23,14 +20,11 @@ class RecipeAdapter(val recipeList: ArrayList<Recipe> = ArrayList<Recipe>()): Re
         val layoutInflater = LayoutInflater.from(parent.context)
         val binding : ListItemBinding =
             DataBindingUtil.inflate(layoutInflater,R.layout.list_item,parent,false)
-        //binding.myViewModel =   recipeViewModel
         return RecipeViewHolder(binding)
-
     }
 
     override fun onBindViewHolder(holder: RecipeViewHolder, position: Int) {
         holder.bind(recipeList[position])
-        //holder.readFireStorData(recipeList[position])
     }
 
     override fun getItemCount(): Int {
@@ -43,23 +37,3 @@ class RecipeViewHolder(val binding: ListItemBinding): RecyclerView.ViewHolder(bi
 
     }
 }
-
-//    fun readFireStorData(recipe: Recipe) {
-//
-//        val db = FirebaseFirestore.getInstance()
-//        db.collection("recipes")
-//            .get()
-//            .addOnCompleteListener { task ->
-//                val result: StringBuffer = StringBuffer()
-//                if (task.isSuccessful) {
-//                    for (document in task.result!!) {
-//                        result.append(document.data.getValue("recipe_name"))
-//                        recipe.recipeTitel = result.toString()
-//                        recipe.recipeTitel = binding.rTitleView.toString()
-//                        Log.w("go",  result.toString())
-//                    }
-//                } else {
-//                    Log.w("Test", "Error getting documents.", task.exception)
-//                }
-//            }
-//    }

@@ -26,8 +26,7 @@
                 android:background="@drawable/bg_detail_layout_landscape"
                 android:contentDescription="@string/recipe_image"
                 android:cropToPadding="true"
-                android:src="@drawable/recipe_test_image"
-                android:layout_marginStart="10dp" />
+                android:src="@drawable/recipe_image_1" />
 
             <ScrollView
                 android:layout_width="match_parent"

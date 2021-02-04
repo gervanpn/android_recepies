@@ -12,17 +12,24 @@ import androidx.navigation.ui.NavigationUI
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.recipe.databinding.FragmentListBinding
 import com.example.recipe.model.RecipesViewModel
+import com.google.firebase.auth.FirebaseAuth
 
 class List : Fragment() {
     private val recipesListAdapter = RecipeAdapter(arrayListOf())
     private lateinit var binding: FragmentListBinding
     private lateinit var viewModel: RecipesViewModel
-
+    private lateinit var firebaseAuth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
-
+        firebaseAuth = FirebaseAuth.getInstance()
+        val user = FirebaseAuth.getInstance().currentUser
+        if (user != null) {
+            setHasOptionsMenu(true)
+        }else {
+            setHasOptionsMenu(false)
+        }
     }
 
     override fun onCreateView(
@@ -43,8 +50,9 @@ class List : Fragment() {
 
         return binding.root
     }
+
     fun observerViewModel(){
-        viewModel.recipes.observe(viewLifecycleOwner, Observer {recipes ->
+        viewModel.recipesLiveData.observe(viewLifecycleOwner, Observer {recipes ->
             recipes.let {
                 recipesListAdapter.updateRecipe(recipes)
                 Log.i("did",it.toString())
@@ -56,7 +64,6 @@ class List : Fragment() {
         super.onCreateOptionsMenu(menu, inflater)
         inflater.inflate(R.menu.list_menu, menu)
     }
-
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return NavigationUI.onNavDestinationSelected(item, requireView(). findNavController())

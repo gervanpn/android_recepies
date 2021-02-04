@@ -31,7 +31,7 @@ class SignIn : Fragment() {
     private lateinit var binding : FragmentLoginSignUpBinding
 
     private lateinit var firebaseAuth: FirebaseAuth
-    private val RC_SIGN_IN: Int = 1
+    private val RCSIGNIN: Int = 1
     private lateinit var mGoogleSignInClient: GoogleSignInClient
     private lateinit var mGoogleSignInOptions: GoogleSignInOptions
 
@@ -41,20 +41,23 @@ class SignIn : Fragment() {
     }
 
     fun checkSignInStatus(){
-        if (firebaseAuth.currentUser != null) {
+        val user = firebaseAuth.currentUser
+        if (user != null) {
+            binding.textView.text = user.email
             binding.googleButton.visibility = SignInButton.GONE
-            binding.signoutBtn.visibility = SignInButton.VISIBLE
             binding.SignUpBtn.visibility =  SignInButton.GONE
             binding.LoginBtn.visibility = SignInButton.GONE
             binding.Email.visibility = SignInButton.GONE
             binding.password.visibility = SignInButton.GONE
+            binding.signoutBtn.visibility = SignInButton.VISIBLE
         } else {
+            binding.textView.text = getString(R.string.no_user)
             binding.googleButton.visibility = SignInButton.VISIBLE
-            binding.signoutBtn.visibility = SignInButton.GONE
             binding.SignUpBtn.visibility =  SignInButton.VISIBLE
             binding.LoginBtn.visibility = SignInButton.VISIBLE
             binding.Email.visibility = SignInButton.VISIBLE
             binding.password.visibility = SignInButton.VISIBLE
+            binding.signoutBtn.visibility = SignInButton.GONE
         }
     }
        override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -70,10 +73,7 @@ class SignIn : Fragment() {
            binding.signoutBtn.setOnClickListener {
                mGoogleSignInClient.signOut()
                firebaseAuth.signOut()
-
-               binding.textView.text = "Please Sign In"
                checkSignInStatus()
-
            }
 
 	   var etEmail = binding.Email.text
@@ -115,6 +115,7 @@ class SignIn : Fragment() {
                            val request = NavDeepLinkRequest.Builder
                                .fromUri("android-app://androidx.navigation.app/list".toUri())
                                .build()
+
                            findNavController().navigate(request)
                            Log.d("TAG", "do_Login: you are logged in ")
                            val user: FirebaseUser? = firebaseAuth.currentUser
@@ -136,10 +137,6 @@ class SignIn : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val user = FirebaseAuth.getInstance().currentUser
-        if (user != null) {
-            binding.textView.text = user.email
-        }
     }
 
     override fun onStart() {
@@ -170,13 +167,13 @@ class SignIn : Fragment() {
 
     private fun signIn() {
         val signInIntent: Intent = mGoogleSignInClient.signInIntent
-        startActivityForResult(signInIntent, RC_SIGN_IN)
+        startActivityForResult(signInIntent, RCSIGNIN)
         val user: FirebaseUser? = firebaseAuth.getCurrentUser()
         Log.d("FB", user.toString())
     }
     private fun configureGoogleSignIn() {
         mGoogleSignInOptions = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestIdToken(getString(R.string.default_web_client_id))
+            .requestIdToken(getString(R.string.web_client_id))
             .requestEmail()
             .build()
         mGoogleSignInClient = GoogleSignIn.getClient(thiscontext!!, mGoogleSignInOptions)
@@ -184,7 +181,7 @@ class SignIn : Fragment() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == RC_SIGN_IN) {
+        if (requestCode == RCSIGNIN) {
             val task: Task<GoogleSignInAccount> = GoogleSignIn.getSignedInAccountFromIntent(data)
             try {
                 val account = task.getResult(ApiException::class.java)

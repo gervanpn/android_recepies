@@ -3,30 +3,34 @@ package com.example.recipe
 
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.view.*
 import androidx.annotation.RequiresApi
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.example.recipe.databinding.FragmentDetailViewBinding
-import com.example.recipe.model.RecipesViewModel
 import com.google.android.material.snackbar.Snackbar
-import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.auth.FirebaseAuth
 
 class DetailView : Fragment() {
 
     private lateinit var binding: FragmentDetailViewBinding
+    private lateinit var firebaseAuth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
-        setHasOptionsMenu(true)
+        firebaseAuth = FirebaseAuth.getInstance()
+        val user = FirebaseAuth.getInstance().currentUser
+        if (user != null) {
+            setHasOptionsMenu(true)
+        }else {
+            setHasOptionsMenu(false)
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
        inflater.inflate(R.menu.detail_page_menu, menu)
         super.onCreateOptionsMenu(menu, inflater)
-        readFireStorData()
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -43,13 +47,8 @@ class DetailView : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_detail_view, container, false)
-        binding.imageView.clipToOutline = true
+        binding.imageView?.clipToOutline ?: true
         return binding.root
-    }
-
-    fun readFireStorData() {
-//        val recipesVM = RecipesViewModel()
-//        recipesVM.readFireStorData()
     }
 
 }
