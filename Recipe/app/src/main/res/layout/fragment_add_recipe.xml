@@ -112,27 +112,28 @@
                     android:importantForAutofill="no" />
 
                 <com.google.android.material.card.MaterialCardView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/pad_standard"
-                    android:layout_gravity="center"
-                    android:background="@color/green">
+                    android:layout_width = "match_parent"
+                    android:layout_height = "wrap_content"
+                    android:layout_gravity = "fill"
+                    android:layout_marginHorizontal = "@dimen/pad_standard"
+                    android:background = "@color/green">
 
                     <ImageView
-                        android:id="@+id/rPicture"
-                        android:layout_width="150dp"
-                        android:layout_height="150dp"
-                        android:layout_gravity="start"
-                        android:contentDescription="@string/recipe_image" />
+                        android:id = "@+id/rPicture"
+                        android:layout_width = "150dp"
+                        android:layout_height = "150dp"
+                        android:layout_gravity = "start"
+                        android:background = "@drawable/empty_plate"
+                        android:contentDescription = "@string/recipe_image" />
 
                     <Button
-                        android:id="@+id/add_picture_btn"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="75dp"
-                        android:layout_marginStart="75dp"
-                        android:layout_gravity="center_vertical|center"
-                        android:text="@string/add_photo" />
+                        android:id = "@+id/add_picture_btn"
+                        android:layout_width = "wrap_content"
+                        android:layout_height = "wrap_content"
+                        android:layout_gravity = "center_vertical|center"
+                        android:layout_marginStart = "75dp"
+                        android:layout_marginLeft = "75dp"
+                        android:text = "@string/add_photo" />
 
                 </com.google.android.material.card.MaterialCardView>
 
