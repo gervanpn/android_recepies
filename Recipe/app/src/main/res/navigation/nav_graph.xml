@@ -33,10 +33,10 @@
             android:defaultValue="me"
             app:argType="string" />
         <action
-            android:id="@+id/action_list_to_detail_view"
-            app:destination="@id/detail_view"
-            app:popUpTo="@id/home"
-            app:popUpToInclusive="true" />
+            android:id = "@+id/action_list_to_detail_view"
+            app:destination = "@id/detail_view"
+            app:popUpTo = "@id/detail_view"
+            app:popUpToInclusive = "true" />
         <deepLink
             android:id="@+id/deepLink"
             app:uri="android-app://androidx.navigation.app/list" />
