@@ -46,12 +46,16 @@ class List : Fragment() {
         viewModel.readFireStorData()
         binding = DataBindingUtil.inflate(inflater,R.layout.fragment_list, container, false)
         binding.recyclerView.layoutManager = LinearLayoutManager(this.context)
-        observerViewModel()
         binding.recyclerView.apply {
             adapter = recipesListAdapter
         }
 
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        observerViewModel()
     }
 
     fun observerViewModel(){
