@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.recipe.databinding.ListItemBinding
 import com.example.recipe.model.Recipe
 import com.example.recipe.util.DownloadImage
-import kotlin.collections.List
 
 class RecipeAdapter(val recipeList: ArrayList<Recipe> = ArrayList()): RecyclerView.Adapter<RecipeAdapter.RecipeViewHolder>() {
     fun updateRecipe(newRecisList:ArrayList<Recipe>){
@@ -32,7 +31,6 @@ class RecipeAdapter(val recipeList: ArrayList<Recipe> = ArrayList()): RecyclerVi
         holder?.binding.cardView.setOnClickListener {
             val bundle = bundleOf("name" to item.recipe_name, "picture" to item.recipe_picture, "instruction" to item.recipe_instructions )
             it.findNavController().navigate(R.id.action_list_to_detail_view, bundle)
-            Log.d("clicked", "Clicked")
         }
     }
 
