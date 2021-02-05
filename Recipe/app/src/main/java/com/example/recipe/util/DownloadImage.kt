@@ -14,7 +14,7 @@ class DownloadImage(var imageView: ImageView) : AsyncTask<String?, Void?, Bitmap
         try {
             val `is` = URL(urlOfImage).openStream()
 
-            */logo = BitmapFactory.decodeStream(`is`)
+            logo = BitmapFactory.decodeStream(`is`)
         } catch (e: Exception) { // Catch the download exception
             e.printStackTrace()
         }
