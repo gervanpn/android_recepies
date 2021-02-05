@@ -1,4 +1,3 @@
-
 package com.example.recipe
 
 import android.os.Build
@@ -17,7 +16,6 @@ class DetailView : Fragment() {
 
     private lateinit var binding: FragmentDetailViewBinding
     private lateinit var firebaseAuth: FirebaseAuth
-
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
@@ -25,13 +23,13 @@ class DetailView : Fragment() {
         val user = FirebaseAuth.getInstance().currentUser
         if (user != null) {
             setHasOptionsMenu(true)
-        }else {
+        } else {
             setHasOptionsMenu(false)
         }
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-       inflater.inflate(R.menu.detail_page_menu, menu)
+        inflater.inflate(R.menu.detail_page_menu, menu)
         super.onCreateOptionsMenu(menu, inflater)
     }
 

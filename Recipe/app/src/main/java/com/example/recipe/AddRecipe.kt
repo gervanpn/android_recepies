@@ -25,7 +25,6 @@ class AddRecipe : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout
         val binding: FragmentAddRecipeBinding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_add_recipe, container, false)
         binding.cancelBtn.setOnClickListener { view: View ->
@@ -51,8 +50,9 @@ class AddRecipe : Fragment() {
             NavHostFragment.findNavController(this).navigate(R.id.action_addRecipe_to_list)
         }
 
-            return binding.root
-        }
+        return binding.root
+    }
+
     fun saveDataFireStore(
         title: EditText,
         description: EditText,
@@ -88,8 +88,6 @@ class AddRecipe : Fragment() {
                 )
             }
             .addOnFailureListener { e -> Log.w("TAG", "Error adding document", e) }
-
-
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
