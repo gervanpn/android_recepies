@@ -58,7 +58,7 @@ class DetailView : Fragment() {
         DownloadImage(binding.imageView).execute(recipeImage)
         recipeTitle?.setText(recipeName)
         recipeDescription?.setText(recipeInstruction)
-        binding.imageView?.clipToOutline ?: true
+        binding.imageView?.clipToOutline = true
         return binding.root
     }
 
