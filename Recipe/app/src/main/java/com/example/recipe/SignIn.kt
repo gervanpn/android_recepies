@@ -148,10 +148,8 @@ class SignIn : Fragment() {
 
     override fun onStart() {
         super.onStart()
-
         val currentUser = firebaseAuth.currentUser
         Log.d("TAG", "do_Login:$currentUser")
-
         configureGoogleSignIn()
         binding.googleButton.setOnClickListener {
             signIn()
