@@ -1,59 +1,57 @@
 package com.example.recipe
 
-import android.annotation.SuppressLint
-import android.os.Build
+import android.content.Intent
 import android.os.Bundle
-import android.view.Window
-import android.view.WindowManager
-import androidx.annotation.RequiresApi
+import android.os.Handler
+import android.os.Looper
+import android.view.*
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import androidx.navigation.NavController
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
-import com.google.android.material.bottomnavigation.BottomNavigationView
-
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var navController: NavController
+    //Variables
+    var topAnim: Animation? = null
+    var bottomAnim: Animation? = null
+    var papers: ImageView? = null
+    var logo: ImageView? = null
+    var slogan: TextView? = null
+    var lines: View? = null
+    var splash_screen: Long = 5000L
 
-    @SuppressLint("RestrictedApi")
-    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_nav_view)
-        navController = findNavController(R.id.fragment)
-        bottomNavigationView.setupWithNavController(navController)
-        val appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.home,
-                R.id.login_SignUp,
-                R.id.list,
-                R.id.detail_view
-            )
+        window.setFlags(
+//            WindowInsetsController.hide(Int), WindowInsets.Type.statusBars(),
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN
         )
-        setupActionBarWithNavController(navController, appBarConfiguration)
-        // Set Status Bar Color & transparency
-        val window: Window = this@MainActivity.window
-        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
-        window.statusBarColor = ContextCompat.getColor(this@MainActivity, R.color.top_bar)
-        val actionbar = supportActionBar
-        actionbar!!.setDisplayHomeAsUpEnabled(false)
-    }
+        setContentView(R.layout.activity_main)
 
+        //Animations
+        topAnim = AnimationUtils.loadAnimation(this, R.anim.top_animation)
+        bottomAnim = AnimationUtils.loadAnimation(this, R.anim.bottom_animation)
 
-    override fun onStart() {
-        super.onStart()
-        // Check if user is signed in (non-null) and update UI accordingly.
-    }
+        //Hooks
+        papers = findViewById<ImageView>(R.id.recipes_img)
+        logo = findViewById<ImageView>(R.id.logo_img)
+        slogan = findViewById(R.id.tagline_text)
+        lines = findViewById(R.id.divider)
 
+        papers!!.setAnimation(topAnim)
+        logo!!.setAnimation(bottomAnim)
+        lines!!.setAnimation(bottomAnim)
+        slogan!!.setAnimation(bottomAnim)
 
-    override fun onSupportNavigateUp(): Boolean {
-        onBackPressed()
-        return true
+        Handler(Looper.myLooper()!!).postDelayed({
+            val intent = Intent(this@MainActivity, MainRecipe::class.java)
+            startActivity(intent)
+//            finish()
+        }, splash_screen)
     }
 }
