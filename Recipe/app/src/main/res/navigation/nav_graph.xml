@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/home">
+
+    <fragment
+        android:id="@+id/home"
+        android:name="com.example.recipe.Home"
+        android:label="Home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_home_to_list"
+            app:destination="@id/list" />
+    </fragment>
+    <fragment
+        android:id="@+id/login_SignUp"
+        android:name="com.example.recipe.SignIn"
+        android:label="Sign In"
+        tools:layout="@layout/fragment_login_sign_up">
+        <action
+            android:id="@+id/action_login_SignUp_to_list"
+            app:destination="@id/list" />
+    </fragment>
+    <fragment
+        android:id="@+id/list"
+        android:name="com.example.recipe.ListView"
+        android:label="Recipes"
+        tools:layout="@layout/fragment_list">
+        <argument
+            android:name="amount"
+            android:defaultValue="me"
+            app:argType="string" />
+        <action
+            android:id = "@+id/action_list_to_detail_view"
+            app:destination = "@id/detail_view"
+            app:popUpTo = "@id/detail_view"
+            app:popUpToInclusive = "true" />
+        <deepLink
+            android:id="@+id/deepLink"
+            app:uri="android-app://androidx.navigation.app/list" />
+        <action
+            android:id="@+id/action_list_to_addRecipe"
+            app:destination="@id/addRecipe"
+            app:launchSingleTop="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/detail_view"
+        android:name="com.example.recipe.DetailView"
+        android:label="Instructions"
+        tools:layout="@layout/fragment_detail_view" />
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.example.recipe.AboutApp"
+        android:label="@string/about_title"
+        tools:layout="@layout/fragment_about">
+        <action
+            android:id = "@+id/action_aboutFragment_to_home"
+            app:destination = "@id/home"
+            app:popUpTo = "@id/home" />
+    </fragment>
+    <fragment
+        android:id="@+id/addRecipe"
+        android:name="com.example.recipe.AddRecipe"
+        android:label="Add or Update Recipe"
+        tools:layout="@layout/fragment_add_recipe" >
+        <action
+            android:id="@+id/action_bar_activity_content"
+            app:destination="@id/list"
+            app:popUpTo="@id/list" />
+        <action
+            android:id = "@+id/action_addRecipe_to_list"
+            app:destination = "@id/list"
+            app:popUpTo = "@id/list" />
+
+    </fragment>
+    <activity
+        android:id = "@+id/mainActivity"
+        android:name = "com.example.recipe.MainActivity"
+        android:label = "activity_main"
+        tools:layout = "@layout/activity_main" />
+</navigation>

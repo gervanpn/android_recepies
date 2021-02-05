@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".AddRecipe">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/pad_standard">
+
+        <TextView
+            android:id="@+id/addNew_Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/pad_standard"
+            android:layout_marginBottom="@dimen/pad_half"
+            android:text="@string/add_recipe"
+            android:textSize="@dimen/topnav_text"
+            android:textColor="@color/green"
+            android:layout_gravity="center"/>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginVertical="@dimen/pad_standard">
+
+                <TextView
+                    android:id="@+id/title_rTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/pad_standard"
+                    android:layout_marginBottom="@dimen/pad_half"
+                    android:text="@string/recipe_title"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/rTitle_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/pad_standard"
+                    android:layout_marginBottom="@dimen/pad_standard"
+                    android:hint="@string/title"
+                    android:inputType="textCapWords"
+                    android:textSize="16sp"
+                    android:importantForAutofill="no" />
+
+                <TextView
+                    android:id="@+id/title_rDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/pad_standard"
+                    android:layout_marginBottom="@dimen/pad_half"
+                    android:text="@string/description_detailed"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/rDescription_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/pad_standard"
+                    android:layout_marginBottom="@dimen/pad_standard"
+                    android:hint="@string/description"
+                    android:inputType="textMultiLine"
+                    android:textSize="16sp"
+                    android:importantForAutofill="no" />
+
+                <TextView
+                    android:id="@+id/title_rIngredients"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/pad_standard"
+                    android:layout_marginBottom="@dimen/pad_half"
+                    android:text="@string/ingredients_list"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/rIngredients_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/pad_standard"
+                    android:layout_marginBottom="@dimen/pad_standard"
+                    android:hint="@string/ingredients"
+                    android:inputType="textMultiLine"
+                    android:textSize="16sp"
+                    android:importantForAutofill="no" />
+
+                <TextView
+                    android:id="@+id/title_rInstructions"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/pad_standard"
+                    android:layout_marginBottom="@dimen/pad_half"
+                    android:text="@string/preparation"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/rInstructions_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/pad_standard"
+                    android:layout_marginBottom="@dimen/pad_standard"
+                    android:hint="@string/instructions"
+                    android:inputType="textMultiLine"
+                    android:textSize="16sp"
+                    android:importantForAutofill="no" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width = "match_parent"
+                    android:layout_height = "wrap_content"
+                    android:layout_gravity = "fill"
+                    android:layout_marginHorizontal = "@dimen/pad_standard"
+                    android:background = "@color/green">
+
+                    <ImageView
+                        android:id = "@+id/rPicture"
+                        android:layout_width = "150dp"
+                        android:layout_height = "150dp"
+                        android:layout_gravity = "start"
+                        android:background = "@drawable/empty_plate"
+                        android:contentDescription = "@string/recipe_image" />
+
+                    <Button
+                        android:id = "@+id/add_picture_btn"
+                        android:layout_width = "wrap_content"
+                        android:layout_height = "wrap_content"
+                        android:layout_gravity = "center_vertical|center"
+                        android:layout_marginStart = "75dp"
+                        android:layout_marginLeft = "75dp"
+                        android:text = "@string/add_photo" />
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <Switch
+                    android:id="@+id/rStatus"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/pad_standard"
+                    android:layout_marginVertical="@dimen/pad_standard"
+                    android:text="@string/status_instruct"
+                    android:textSize="16sp"
+                    android:textColor="@color/top_bar"
+                    tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+                <TextView
+                    android:id="@+id/title_rCategory"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/pad_standard"
+                    android:text="@string/select_category"
+                    android:textSize="16sp" />
+
+                <Spinner
+                    android:id="@+id/rCategory"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/pad_standard"
+                    android:layout_marginBottom="@dimen/pad_standard"
+                    android:autofillHints="Any"/>
+
+                <TextView
+                    android:id="@+id/user"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/pad_standard"
+                    android:layout_marginBottom="@dimen/pad_standard"
+                    android:text="@string/user_name"
+                    android:textSize="16sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="48dp">
+
+                    <Button
+                        android:id="@+id/cancel_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="70dp"
+                        android:layout_marginEnd="70dp"
+                        android:text="@string/btn_cancel" />
+
+                    <Button
+                        android:id="@+id/save_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/btn_save" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </LinearLayout>
+
+</layout>
