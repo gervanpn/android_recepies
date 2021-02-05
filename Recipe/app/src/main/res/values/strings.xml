@@ -1,42 +1,42 @@
 <resources>
-    <string name="app_name">Recipe</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <!--    <string name="hello_blank_fragment">Hello blank fragment</string>-->
-    <string name="list_view">List_view</string>
-    <string name="exit">exit</string>
-    <string name="detail_view">detail_view</string>
-    <string name="home_title">Home</string>
-    <string name="login_title">Sign In/Out</string>
-    <string name="list_title">Recipes</string>
-    <string name="detail_title">Instructions</string>
-    <string name="exit_title">Exit</string>
+	<string name = "app_name">Recipe</string>
+	<!-- TODO: Remove or change this placeholder text -->
+	<!--    <string name="hello_blank_fragment">Hello blank fragment</string>-->
+	<string name = "list_view">List_view</string>
+	<string name = "exit">exit</string>
+	<string name = "detail_view">detail_view</string>
+	<string name = "home_title">Home</string>
+	<string name = "login_title">Sign In/Out</string>
+	<string name = "list_title">Recipes</string>
+	<string name = "detail_title">Instructions</string>
+	<string name = "exit_title">Exit</string>
 
-    <string name="home">Home</string>
-    <string name="home_image">Home Background</string>
-    <string name="btn_entree">ENTREE</string>
-    <string name="Email">Email</string>
-    <string name="Password">Password</string>
-    <string name="Login">Sign In</string>
-    <string name="Signup">Sign Up</string>
+	<string name = "home">Home</string>
+	<string name = "home_image">Home Background</string>
+	<string name = "btn_entree">ENTREE</string>
+	<string name = "Email">Email</string>
+	<string name = "Password">Password</string>
+	<string name = "Login">Sign In</string>
+	<string name = "Signup">Sign Up</string>
 
-    <string name="web_client_id">513502174301-3pfu4vjo5t5uuu2rqgmv0auplsueo976.apps.googleusercontent.com</string>
+	<string name = "web_client_id">513502174301-3pfu4vjo5t5uuu2rqgmv0auplsueo976.apps.googleusercontent.com</string>
 
-    <string name="sign_out">Sign Out</string>
-    <string name="no_user">Please Sign In</string>
+	<string name = "sign_out">Sign Out</string>
+	<string name = "no_user">Please Sign In</string>
 
-    <string name="recipe_image">Recipe Image</string>
-    <string name="recipe_name">Recipe Name</string>
-    <string name="recipe_description">Recipe Description</string>
-    <string name="recipe_category">Category</string>
-    <string name="recipe_ingredients">List of Ingredients</string>
-    <string name="recipe_Instructions">Preparation Instructions</string>
-    <string name="recipe_status">false</string>
-    <string name="update">Update</string>
+	<string name = "recipe_image">Recipe Image</string>
+	<string name = "recipe_name">Recipe Name</string>
+	<string name = "recipe_description">Recipe Description</string>
+	<string name = "recipe_category">Category</string>
+	<string name = "recipe_ingredients">List of Ingredients</string>
+	<string name = "recipe_Instructions">Preparation Instructions</string>
+	<string name = "recipe_status">false</string>
+	<string name = "update">Update</string>
 
-    <string name="about_title">About</string>
-    <string name="about_image">About Image</string>
-    <string name="about_thanks">Thanks to:</string>
-    <string name="about_team">
+	<string name = "about_title">About</string>
+	<string name = "about_image">About Image</string>
+	<string name = "about_thanks">Thanks to:</string>
+	<string name = "about_team">
         "Development by:\n\n"
         "Lalaantika\n"
         "Roaa\n"
@@ -47,14 +47,14 @@
         "&amp;\n"
         "Gervan\n"
     </string>
-    <string name="about_text_details">This project was developed in Kotlin as a team project for Willis College.</string>
-    <string name="blank" />
-    <string name="add_recipe"> Add Recipe </string>
-    <string name="fav_recipe"> Favorite </string>
-    <string name="user_name">User:</string>
-    <string name="status_instruct">Recipe is set to public. Make it private?</string>
+	<string name = "about_text_details">This project was developed in Kotlin as a team project for Willis College.</string>
+	<string name = "blank" />
+	<string name = "add_recipe"> Add Recipe </string>
+	<string name = "fav_recipe"> Favorite </string>
+	<string name = "user_name">User:</string>
+	<string name = "status_instruct">Recipe is set to public. Make it private?</string>
 
-    <string name="large_text">
+	<string name = "large_text">
         "Material is the metaphor.\n\n"
 
         "A material metaphor is the unifying theory of a rationalized space and a system of motion."
@@ -143,20 +143,21 @@
         "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
         "when a user tries to pick up one of cards.\n\n"
     </string>
-    <string name="add_photo">Add a Photo</string>
-    <string name="instructions">Instructions</string>
-    <string name="preparation">Preparation Instructions:</string>
-    <string name="ingredients">Ingredients list</string>
-    <string name="ingredients_list">List your Ingredients here:</string>
-    <string name="description">Description</string>
-    <string name="description_detailed">Enter a description for this recipe:</string>
-    <string name="title">Title</string>
-    <string name="recipe_title">Recipe Title:</string>
-    <string name="btn_cancel">Cancel</string>
-    <string name="btn_save">Save</string>
-    <string name="select_category">Select a category for this recipe:</string>
+	<string name = "add_photo">Add a Photo</string>
+	<string name = "instructions">Instructions</string>
+	<string name = "preparation">Preparation Instructions:</string>
+	<string name = "ingredients">Ingredients list</string>
+	<string name = "ingredients_list">List your Ingredients here:</string>
+	<string name = "description">Description</string>
+	<string name = "description_detailed">Enter a description for this recipe:</string>
+	<string name = "title">Title</string>
+	<string name = "recipe_title">Recipe Title:</string>
+	<string name = "btn_cancel">Cancel</string>
+	<string name = "btn_save">Save</string>
+	<string name = "select_category">Select a category for this recipe:</string>
 	<string name = "back">Back</string>
-    <string name = "todo">TODO</string>
+	<string name = "todo">TODO</string>
+	<string name = "tag_line"><![CDATA[Keep, Find & Favorite Yours Today]]></string>
 
 
 </resources>
