@@ -11,17 +11,19 @@ import com.example.recipe.databinding.ListItemBinding
 import com.example.recipe.model.Recipe
 import com.example.recipe.util.DownloadImage
 
-class RecipeAdapter(val recipeList: ArrayList<Recipe> = ArrayList()): RecyclerView.Adapter<RecipeAdapter.RecipeViewHolder>() {
-    fun updateRecipe(newRecisList:ArrayList<Recipe>){
+class RecipeAdapter(val recipeList: ArrayList<Recipe> = ArrayList()) :
+    RecyclerView.Adapter<RecipeAdapter.RecipeViewHolder>() {
+    fun updateRecipe(newRecisList: ArrayList<Recipe>) {
         Log.d("size", "" + newRecisList.size)
         recipeList.clear()
         recipeList.addAll(newRecisList)
         notifyDataSetChanged()
     }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecipeViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
-        val binding : ListItemBinding =
-            DataBindingUtil.inflate(layoutInflater,R.layout.list_item,parent,false)
+        val binding: ListItemBinding =
+            DataBindingUtil.inflate(layoutInflater, R.layout.list_item, parent, false)
         return RecipeViewHolder(binding)
     }
 
@@ -29,7 +31,11 @@ class RecipeAdapter(val recipeList: ArrayList<Recipe> = ArrayList()): RecyclerVi
         var item: Recipe = recipeList[position]
         holder.bind(recipeList[position])
         holder?.binding.cardView.setOnClickListener {
-            val bundle = bundleOf("name" to item.recipe_name, "picture" to item.recipe_picture, "instruction" to item.recipe_instructions )
+            val bundle = bundleOf(
+                "name" to item.recipe_name,
+                "picture" to item.recipe_picture,
+                "instruction" to item.recipe_instructions
+            )
             Recipe.recipeSelected = bundle
             it.findNavController().navigate(R.id.action_list_to_detail_view, bundle)
         }
@@ -39,11 +45,12 @@ class RecipeAdapter(val recipeList: ArrayList<Recipe> = ArrayList()): RecyclerVi
         return recipeList.size
     }
 
- inner class RecipeViewHolder(val binding: ListItemBinding): RecyclerView.ViewHolder(binding.root) {
-     fun bind(recipe: Recipe) {
-         val imageView = binding.rImageView
-         DownloadImage(imageView).execute(recipe.recipe_picture)
-         binding.rTitleView.text = recipe.recipe_name
-     }
- }
+    inner class RecipeViewHolder(val binding: ListItemBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        fun bind(recipe: Recipe) {
+            val imageView = binding.rImageView
+            DownloadImage(imageView).execute(recipe.recipe_picture)
+            binding.rTitleView.text = recipe.recipe_name
+        }
+    }
 }

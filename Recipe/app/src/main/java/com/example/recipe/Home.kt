@@ -27,9 +27,14 @@ class Home : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         //val bar = getSupportActionBar
-        val binding = DataBindingUtil.inflate<FragmentHomeBinding>(inflater, R.layout.fragment_home, container, false)
+        val binding = DataBindingUtil.inflate<FragmentHomeBinding>(
+            inflater,
+            R.layout.fragment_home,
+            container,
+            false
+        )
         binding.btnEntree.setOnClickListener(
-                Navigation.createNavigateOnClickListener(R.id.action_home_to_list)
+            Navigation.createNavigateOnClickListener(R.id.action_home_to_list)
         )
         setHasOptionsMenu(true)
         // Inflate the layout for this fragment
@@ -42,9 +47,10 @@ class Home : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return NavigationUI.onNavDestinationSelected(item, requireView(). findNavController())
+        return NavigationUI.onNavDestinationSelected(item, requireView().findNavController())
                 || super.onOptionsItemSelected(item)
     }
+
     companion object {
         fun newInstance(): Fragment {
             return Home()

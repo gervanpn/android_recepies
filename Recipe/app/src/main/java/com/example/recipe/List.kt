@@ -27,7 +27,7 @@ class List : Fragment() {
         val user = FirebaseAuth.getInstance().currentUser
         if (user != null) {
             setHasOptionsMenu(true)
-        }else {
+        } else {
             setHasOptionsMenu(false)
         }
     }
@@ -37,7 +37,7 @@ class List : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         viewModel = ViewModelProvider(requireActivity()).get(RecipesViewModel::class.java)
-        binding = DataBindingUtil.inflate(inflater,R.layout.fragment_list, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_list, container, false)
         binding.recyclerView.layoutManager = LinearLayoutManager(this.context)
         binding.recyclerView.apply {
             adapter = recipesListAdapter
@@ -46,8 +46,8 @@ class List : Fragment() {
         return binding.root
     }
 
-    fun observerViewModel(){
-        viewModel.recipesLiveData.observe(viewLifecycleOwner, Observer {recipes ->
+    fun observerViewModel() {
+        viewModel.recipesLiveData.observe(viewLifecycleOwner, Observer { recipes ->
             recipes.let {
                 recipesListAdapter.updateRecipe(recipes)
             }
@@ -60,7 +60,7 @@ class List : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return NavigationUI.onNavDestinationSelected(item, requireView(). findNavController())
+        return NavigationUI.onNavDestinationSelected(item, requireView().findNavController())
                 || super.onOptionsItemSelected(item)
     }
 }

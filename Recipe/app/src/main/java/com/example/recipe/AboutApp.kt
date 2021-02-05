@@ -26,7 +26,6 @@ class AboutApp : Fragment() {
             NavHostFragment.findNavController(this).navigate(R.id.action_aboutFragment_to_home)
         }
         return binding.root
-        //inflater.inflate(R.layout.fragment_about, container, false)
     }
 }
 
