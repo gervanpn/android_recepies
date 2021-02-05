@@ -28,7 +28,7 @@ import com.google.firebase.auth.GoogleAuthProvider
 class SignIn : Fragment() {
     private var thiscontext: Context? = null
 
-    private lateinit var binding : FragmentLoginSignUpBinding
+    private lateinit var binding: FragmentLoginSignUpBinding
 
     private lateinit var firebaseAuth: FirebaseAuth
     private val RCSIGNIN: Int = 1
@@ -40,12 +40,12 @@ class SignIn : Fragment() {
         firebaseAuth = FirebaseAuth.getInstance()
     }
 
-    fun checkSignInStatus(){
+    fun checkSignInStatus() {
         val user = firebaseAuth.currentUser
         if (user != null) {
             binding.textView.text = user.email
             binding.googleButton.visibility = SignInButton.GONE
-            binding.SignUpBtn.visibility =  SignInButton.GONE
+            binding.SignUpBtn.visibility = SignInButton.GONE
             binding.LoginBtn.visibility = SignInButton.GONE
             binding.Email.visibility = SignInButton.GONE
             binding.password.visibility = SignInButton.GONE
@@ -53,31 +53,36 @@ class SignIn : Fragment() {
         } else {
             binding.textView.text = getString(R.string.no_user)
             binding.googleButton.visibility = SignInButton.VISIBLE
-            binding.SignUpBtn.visibility =  SignInButton.VISIBLE
+            binding.SignUpBtn.visibility = SignInButton.VISIBLE
             binding.LoginBtn.visibility = SignInButton.VISIBLE
             binding.Email.visibility = SignInButton.VISIBLE
             binding.password.visibility = SignInButton.VISIBLE
             binding.signoutBtn.visibility = SignInButton.GONE
         }
     }
-       override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
 
-	   binding = DataBindingUtil.inflate(inflater,R.layout.fragment_login_sign_up,
-			   container, false )
-           if (container != null) {
-               thiscontext = container.context
-           }
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
 
-           checkSignInStatus()
+        binding = DataBindingUtil.inflate(
+            inflater, R.layout.fragment_login_sign_up,
+            container, false
+        )
+        if (container != null) {
+            thiscontext = container.context
+        }
+        checkSignInStatus()
+        binding.signoutBtn.setOnClickListener {
+            mGoogleSignInClient.signOut()
+            firebaseAuth.signOut()
+            checkSignInStatus()
+        }
 
-           binding.signoutBtn.setOnClickListener {
-               mGoogleSignInClient.signOut()
-               firebaseAuth.signOut()
-               checkSignInStatus()
-           }
-
-	   var etEmail = binding.Email.text
-	   var etPassword = binding.password.text
+        var etEmail = binding.Email.text
+        var etPassword = binding.password.text
 
         binding.SignUpBtn.setOnClickListener {
             if (etEmail.toString().isEmpty() || etPassword.toString().isEmpty()) {
@@ -105,34 +110,33 @@ class SignIn : Fragment() {
                     }
             }
         }
-	   binding.LoginBtn.setOnClickListener {
-           if (etEmail.toString().isEmpty() || etPassword.toString().isEmpty()) {
-               Toast.makeText(thiscontext, "Email or Password is empty", Toast.LENGTH_LONG).show()
-           } else {
-               firebaseAuth.signInWithEmailAndPassword(etEmail.toString(), etPassword.toString())
-                   .addOnCompleteListener { task ->
-                       if (task.isSuccessful) {
-                           val request = NavDeepLinkRequest.Builder
-                               .fromUri("android-app://androidx.navigation.app/list".toUri())
-                               .build()
+        binding.LoginBtn.setOnClickListener {
+            if (etEmail.toString().isEmpty() || etPassword.toString().isEmpty()) {
+                Toast.makeText(thiscontext, "Email or Password is empty", Toast.LENGTH_LONG).show()
+            } else {
+                firebaseAuth.signInWithEmailAndPassword(etEmail.toString(), etPassword.toString())
+                    .addOnCompleteListener { task ->
+                        if (task.isSuccessful) {
+                            val request = NavDeepLinkRequest.Builder
+                                .fromUri("android-app://androidx.navigation.app/list".toUri())
+                                .build()
+                            findNavController().navigate(request)
+                            Log.d("TAG", "do_Login: you are logged in ")
+                            val user: FirebaseUser? = firebaseAuth.currentUser
+                            Log.d("TAG", "do_Login:$user")
+                        } else {
+                            Log.d("TAG", "do_Login:login failed")
+                            Toast.makeText(
+                                thiscontext,
+                                "Please enter valid credential",
+                                Toast.LENGTH_LONG
+                            ).show()
+                        }
+                    }
+            }
+        }
 
-                           findNavController().navigate(request)
-                           Log.d("TAG", "do_Login: you are logged in ")
-                           val user: FirebaseUser? = firebaseAuth.currentUser
-                           Log.d("TAG", "do_Login:$user")
-                       } else {
-                           Log.d("TAG", "do_Login:login failed")
-                           Toast.makeText(
-                               thiscontext,
-                               "Please enter valid credential",
-                               Toast.LENGTH_LONG
-                           ).show()
-                       }
-                   }
-           }
-	   }
-
-	   return binding.root
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -141,10 +145,8 @@ class SignIn : Fragment() {
 
     override fun onStart() {
         super.onStart()
-
-		val currentUser = firebaseAuth.currentUser
-		Log.d("TAG", "do_Login:$currentUser")
-
+        val currentUser = firebaseAuth.currentUser
+        Log.d("TAG", "do_Login:$currentUser")
         configureGoogleSignIn()
         binding.googleButton.setOnClickListener {
             signIn()
@@ -158,12 +160,12 @@ class SignIn : Fragment() {
                 val user = FirebaseAuth.getInstance().currentUser
                 Log.d("SUC", user?.displayName!!)
                 val request = NavDeepLinkRequest.Builder
-                        .fromUri("android-app://androidx.navigation.app/list".toUri())
-                        .build()
+                    .fromUri("android-app://androidx.navigation.app/list".toUri())
+                    .build()
                 findNavController().navigate(request)
             }
-            }
         }
+    }
 
     private fun signIn() {
         val signInIntent: Intent = mGoogleSignInClient.signInIntent
@@ -171,6 +173,7 @@ class SignIn : Fragment() {
         val user: FirebaseUser? = firebaseAuth.getCurrentUser()
         Log.d("FB", user.toString())
     }
+
     private fun configureGoogleSignIn() {
         mGoogleSignInOptions = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.web_client_id))
@@ -190,8 +193,7 @@ class SignIn : Fragment() {
                 }
             } catch (e: ApiException) {
                 Log.d("ERROR", e.toString())
-                //Toast.makeText(this, "Google sign in failed:(", Toast.LENGTH_LONG).show()
-            }
+             }
         }
     }
 }
