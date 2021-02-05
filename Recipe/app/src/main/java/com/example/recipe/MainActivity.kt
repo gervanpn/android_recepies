@@ -40,8 +40,6 @@ class MainActivity : AppCompatActivity() {
         // Set Status Bar Color & transparency
         val window: Window = this@MainActivity.window
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
-        // window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS) // deprecated
-        //Window.setStatusBarColor(R.color.green) // for API 30+
         window.statusBarColor = ContextCompat.getColor(this@MainActivity, R.color.top_bar)
         val actionbar = supportActionBar
         actionbar!!.setDisplayHomeAsUpEnabled(false)
