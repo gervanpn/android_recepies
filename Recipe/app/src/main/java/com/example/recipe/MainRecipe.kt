@@ -19,8 +19,9 @@ class MainRecipe : AppCompatActivity() {
 
     private lateinit var navController: NavController
 
+    @RequiresApi(Build.VERSION_CODES.R)
     @SuppressLint("RestrictedApi")
-    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)

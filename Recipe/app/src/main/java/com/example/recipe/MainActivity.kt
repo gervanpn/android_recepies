@@ -1,8 +1,7 @@
 package com.example.recipe
 
-import android.annotation.SuppressLint
+
 import android.content.Intent
-import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -11,21 +10,16 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.annotation.RequiresApi
+
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
+
 import androidx.navigation.NavController
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
-import com.google.android.material.bottomnavigation.BottomNavigationView
+
 
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var navController: NavController
-
     //Variables
     var topAnim: Animation? = null
     var bottomAnim: Animation? = null
@@ -35,8 +29,6 @@ class MainActivity : AppCompatActivity() {
     var lines: View? = null
     var splash_screen: Long = 5000L
 
-
-    @RequiresApi(Build.VERSION_CODES.R)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         window.setFlags(

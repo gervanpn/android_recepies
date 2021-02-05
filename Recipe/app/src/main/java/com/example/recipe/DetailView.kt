@@ -3,7 +3,6 @@ package com.example.recipe
 
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.view.*
 import androidx.annotation.RequiresApi
 import androidx.databinding.DataBindingUtil
@@ -50,15 +49,19 @@ class DetailView : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_detail_view, container, false)
-        val recipeTitle = binding.detailHeaderView?.recipeName
-        val recipeDescription = binding.detailViewDescription?.recipeDescriptionBody
+        var bidingViewHeader = binding.detailHeaderView ?: binding.detailHeaderViewLand
+        var bidingViewDescriptionBinding =
+            binding.detailViewDescription ?: binding.detailViewDescriptionLand
+        val recipeTitle = bidingViewHeader?.recipeName
+        val recipeDescription = bidingViewDescriptionBinding?.recipeDescriptionBody
+        if (arguments == null) arguments = Recipe.recipeSelected
         val recipeName = arguments?.getString("name")
         val recipeImage = arguments?.getString("picture")
         val recipeInstruction = arguments?.getString("instruction")
         DownloadImage(binding.imageView).execute(recipeImage)
         recipeTitle?.setText(recipeName)
         recipeDescription?.setText(recipeInstruction)
-        binding.imageView?.clipToOutline ?: true
+        binding.imageView?.clipToOutline = true
         return binding.root
     }
 
