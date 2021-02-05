@@ -1,5 +1,7 @@
 package com.example.recipe.model
 
+import android.os.Bundle
+
 class Recipe constructor() {
     
     var recipe_instructions: String? = ""
@@ -20,5 +22,9 @@ class Recipe constructor() {
     var user_id: String? = ""
 
     var recipe_status: Boolean = false
+
+    companion object {
+        var recipeSelected = Bundle()
+    }
 
 }

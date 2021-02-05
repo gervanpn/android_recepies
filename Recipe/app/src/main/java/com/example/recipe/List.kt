@@ -1,18 +1,15 @@
 package com.example.recipe
 
 import android.os.Bundle
-import android.util.Log
 import android.view.*
-import androidx.core.os.bundleOf
-import androidx.fragment.app.Fragment
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.recipe.databinding.FragmentListBinding
-import com.example.recipe.model.Recipe
 import com.example.recipe.model.RecipesViewModel
 import com.google.firebase.auth.FirebaseAuth
 
