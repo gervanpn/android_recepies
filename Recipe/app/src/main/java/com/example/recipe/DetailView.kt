@@ -3,13 +3,11 @@ package com.example.recipe
 
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.view.*
 import androidx.annotation.RequiresApi
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.example.recipe.databinding.FragmentDetailViewBinding
-import com.example.recipe.model.Recipe
 import com.example.recipe.util.DownloadImage
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
