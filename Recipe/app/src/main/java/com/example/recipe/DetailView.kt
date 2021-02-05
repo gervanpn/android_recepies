@@ -49,8 +49,11 @@ class DetailView : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_detail_view, container, false)
-        val recipeTitle = binding.detailHeaderView?.recipeName
-        val recipeDescription = binding.detailViewDescription?.recipeDescriptionBody
+        var bidingViewHeader = binding.detailHeaderView ?: binding.detailHeaderViewLand
+        var bidingViewDescriptionBinding =
+            binding.detailViewDescription ?: binding.detailViewDescriptionLand
+        val recipeTitle = bidingViewHeader?.recipeName
+        val recipeDescription = bidingViewDescriptionBinding?.recipeDescriptionBody
         if (arguments == null) arguments = Recipe.recipeSelected
         val recipeName = arguments?.getString("name")
         val recipeImage = arguments?.getString("picture")
