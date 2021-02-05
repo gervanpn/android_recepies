@@ -24,7 +24,7 @@ class MainRecipe : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_main_recipe)
 
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_nav_view)
         navController = findNavController(R.id.fragment)
