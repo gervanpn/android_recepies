@@ -22,7 +22,6 @@ class RecipesViewModel(app: Application): AndroidViewModel(app) {
     init {
         Log.d("Recipes received2: " , "VM Started")
         readFireStorData()
-        recipesLiveData.value = recipes
     }
     
     override fun onCleared() {
@@ -47,6 +46,7 @@ class RecipesViewModel(app: Application): AndroidViewModel(app) {
                 } else {
                     Log.w("Test", "Error getting documents.", task.exception)
                 }
+                recipesLiveData.value = recipes
             }
     }
 }

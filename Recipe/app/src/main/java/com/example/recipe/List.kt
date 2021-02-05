@@ -39,23 +39,14 @@ class List : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-
         viewModel = ViewModelProvider(requireActivity()).get(RecipesViewModel::class.java)
-
-        viewModel.readFireStorData()
         binding = DataBindingUtil.inflate(inflater,R.layout.fragment_list, container, false)
         binding.recyclerView.layoutManager = LinearLayoutManager(this.context)
         binding.recyclerView.apply {
             adapter = recipesListAdapter
         }
-
-        return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
         observerViewModel()
+        return binding.root
     }
 
     fun observerViewModel(){
@@ -63,7 +54,6 @@ class List : Fragment() {
             recipes.let {
                 recipesListAdapter.updateRecipe(recipes)
                 recipes.clear()
-                Log.i("did",it.toString())
             }
         })
     }
