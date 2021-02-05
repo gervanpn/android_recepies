@@ -11,16 +11,12 @@ import com.google.firebase.firestore.FirebaseFirestore
 
 class RecipesViewModel(app: Application): AndroidViewModel(app) {
 
-    init {
-        Log.d("ViewModel", "Started")
-    }
     val mapper = ObjectMapper()
     val recipes = ArrayList<Recipe>()
     val recipesLiveData = MutableLiveData<ArrayList<Recipe>>()
     private val context = app
     
     init {
-        Log.d("Recipes received2: " , "VM Started")
         readFireStorData()
     }
     
@@ -31,7 +27,6 @@ class RecipesViewModel(app: Application): AndroidViewModel(app) {
 
     @JsonIgnoreProperties(ignoreUnknown = true)
     public fun readFireStorData() {
-        Log.d("read: " , recipes.toString())
         val db = FirebaseFirestore.getInstance()
         db.collection("recipes")
             .get()
