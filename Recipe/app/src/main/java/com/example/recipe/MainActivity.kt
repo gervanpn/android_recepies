@@ -57,10 +57,12 @@ class MainActivity : AppCompatActivity() {
         Handler(Looper.myLooper()!!).postDelayed({
             val intent = Intent(this@MainActivity, MainRecipe::class.java)
             startActivity(intent)
-            finish()
+//            finish()
         }, splash_screen)
 
 
     }
+
+
 
 }

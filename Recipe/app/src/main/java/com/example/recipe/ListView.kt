@@ -13,7 +13,7 @@ import com.example.recipe.databinding.FragmentListBinding
 import com.example.recipe.model.RecipesViewModel
 import com.google.firebase.auth.FirebaseAuth
 
-class List : Fragment() {
+class ListView : Fragment() {
 
     private val recipesListAdapter = RecipeAdapter(arrayListOf())
     private lateinit var binding: FragmentListBinding
