@@ -6,10 +6,7 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.view.Window
-import android.view.WindowInsets
-import android.view.WindowInsetsController
-import android.view.WindowManager
+import android.view.*
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.ImageView
@@ -35,6 +32,7 @@ class MainActivity : AppCompatActivity() {
     var papers: ImageView? = null
     var logo: ImageView? = null
     var slogan: TextView? = null
+    var lines: View? = null
     var splash_screen: Long = 5000L
 
 
@@ -56,9 +54,11 @@ class MainActivity : AppCompatActivity() {
         papers = findViewById<ImageView>(R.id.recipes_img)
         logo = findViewById<ImageView>(R.id.logo_img)
         slogan = findViewById(R.id.tagline_text)
+        lines = findViewById(R.id.divider)
 
         papers!!.setAnimation(topAnim)
         logo!!.setAnimation(bottomAnim)
+        lines!!.setAnimation(bottomAnim)
         slogan!!.setAnimation(bottomAnim)
 
 

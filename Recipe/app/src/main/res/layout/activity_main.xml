@@ -29,10 +29,12 @@
             android:scaleType = "fitCenter"
             android:foregroundGravity="center_horizontal"
             app:srcCompat = "@drawable/text_recipes_wht" />
+
         <View
             android:id = "@+id/divider"
-            android:layout_width = "match_parent"
-            android:layout_height = "2dp"
+            android:layout_width = "300dp"
+            android:layout_marginBottom="@dimen/pad_half"
+            android:layout_height = "3dp"
             android:backgroundTint="@color/white"
             android:background = "?android:attr/listDivider" />
 
