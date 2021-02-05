@@ -1,6 +1,5 @@
 package com.example.recipe
 
-
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
@@ -10,12 +9,8 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import android.widget.TextView
-
 import androidx.appcompat.app.AppCompatActivity
-
 import androidx.navigation.NavController
-
-
 
 class MainActivity : AppCompatActivity() {
 
@@ -53,16 +48,10 @@ class MainActivity : AppCompatActivity() {
         lines!!.setAnimation(bottomAnim)
         slogan!!.setAnimation(bottomAnim)
 
-
         Handler(Looper.myLooper()!!).postDelayed({
             val intent = Intent(this@MainActivity, MainRecipe::class.java)
             startActivity(intent)
 //            finish()
         }, splash_screen)
-
-
     }
-
-
-
 }
