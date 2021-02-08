@@ -9,7 +9,7 @@
         android:background="@drawable/slate_bkgrd"
         android:scaleType="centerCrop"
         android:paddingBottom="@dimen/pad_standard"
-        tools:context=".List">
+        tools:context=".ListView">
 
 
         <androidx.recyclerview.widget.RecyclerView

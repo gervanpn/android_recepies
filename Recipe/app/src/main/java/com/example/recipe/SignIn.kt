@@ -74,9 +74,7 @@ class SignIn : Fragment() {
         if (container != null) {
             thiscontext = container.context
         }
-
         checkSignInStatus()
-
         binding.signoutBtn.setOnClickListener {
             mGoogleSignInClient.signOut()
             firebaseAuth.signOut()
@@ -122,7 +120,6 @@ class SignIn : Fragment() {
                             val request = NavDeepLinkRequest.Builder
                                 .fromUri("android-app://androidx.navigation.app/list".toUri())
                                 .build()
-
                             findNavController().navigate(request)
                             Log.d("TAG", "do_Login: you are logged in ")
                             val user: FirebaseUser? = firebaseAuth.currentUser
@@ -148,10 +145,8 @@ class SignIn : Fragment() {
 
     override fun onStart() {
         super.onStart()
-
         val currentUser = firebaseAuth.currentUser
         Log.d("TAG", "do_Login:$currentUser")
-
         configureGoogleSignIn()
         binding.googleButton.setOnClickListener {
             signIn()
@@ -198,8 +193,7 @@ class SignIn : Fragment() {
                 }
             } catch (e: ApiException) {
                 Log.d("ERROR", e.toString())
-                //Toast.makeText(this, "Google sign in failed:(", Toast.LENGTH_LONG).show()
-            }
+             }
         }
     }
 }

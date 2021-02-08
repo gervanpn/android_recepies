@@ -13,7 +13,10 @@ class DownloadImage(var imageView: ImageView) : AsyncTask<String?, Void?, Bitmap
         var logo: Bitmap? = null
         try {
             val `is` = URL(urlOfImage).openStream()
+<<<<<<< HEAD
 
+=======
+>>>>>>> Develop
             logo = BitmapFactory.decodeStream(`is`)
         } catch (e: Exception) { // Catch the download exception
             e.printStackTrace()
